@@ -2,20 +2,20 @@
 import Layout from '../layouts/Layout.astro';
 import TopBar from '../components/TopBar.astro';
 import Hero from '../components/Hero.astro';
-import WhatIDo from '../components/WhatIDo.astro';
-import Work from '../components/Work.astro';
-import Stack from '../components/Stack.astro';
-import Markets from '../components/Markets.astro';
-import Contact from '../components/Contact.astro';
+import Servizi from '../components/WhatIDo.astro';
+import ComeFunziona from '../components/ComeFunziona.astro';
+import CasoStudio from '../components/Work.astro';
+import ChiSono from '../components/ChiSono.astro';
+import Contatti from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 ---
-<Layout>
-  <TopBar />
+<Layout lang="it">
+  <TopBar navLabel={'For startups & agencies →'} navHref="/pro" />
   <Hero />
-  <WhatIDo />
-  <Work />
-  <Stack />
-  <Markets />
-  <Contact />
+  <Servizi />
+  <ComeFunziona />
+  <CasoStudio />
+  <ChiSono />
+  <Contatti />
   <Footer />
 </Layout>

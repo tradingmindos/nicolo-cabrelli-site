@@ -212,3 +212,76 @@
     .price-line circle{animation:none;opacity:1;}
     .reveal{opacity:1;transform:none;transition:none;}
   }
+
+  /* ===================================================================
+     Commercial homepage (IT) — additions on top of the original system.
+     Same tokens, same idiom; only new content/structure introduced these.
+     =================================================================== */
+
+  /* top-bar cross-link to /pro (and back) */
+  .topnav-link{
+    font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;
+    color:var(--muted);padding:4px 6px;transition:color .18s;white-space:nowrap;
+  }
+  .topnav-link:hover{color:var(--link-accent);}
+
+  /* hero (commercial) */
+  .hero-sub{
+    font-size:clamp(18px,2.3vw,23px);line-height:1.5;max-width:46ch;margin-top:22px;
+    color:var(--ink);
+  }
+  .hero-note{
+    font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;
+    color:var(--muted);margin-top:14px;
+  }
+  .btn--wa{
+    background:var(--bordeaux);border-color:var(--bordeaux);color:var(--light-fixed);
+    font-size:15px;padding:15px 24px;gap:10px;
+  }
+  .btn--wa:hover{background:#651825;border-color:#651825;color:var(--light-fixed);}
+  .btn--wa svg{width:19px;height:19px;display:block;}
+
+  /* how it works — three steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,4vw,56px);}
+  .step{border-top:1px solid var(--rule);padding-top:18px;}
+  .step-n{
+    font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:var(--gold);
+    display:block;margin-bottom:14px;
+  }
+  .step h3{font-family:var(--display);font-weight:600;font-size:22px;margin-bottom:8px;}
+  .step p{color:var(--muted);font-size:16px;}
+
+  /* case study */
+  .project--case{border-top:none;padding-top:0;}
+  .case-media{
+    aspect-ratio:16/9;width:100%;border:1px solid var(--rule);background:var(--cream-2);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--muted);
+    margin-bottom:6px;
+  }
+  .quote{
+    font-size:19px;line-height:1.5;color:var(--ink);max-width:60ch;
+    border-left:2px solid var(--gold);padding-left:18px;margin-top:4px;
+  }
+
+  /* about */
+  .about{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,4vw,48px);align-items:center;}
+  .about-photo{
+    width:clamp(120px,18vw,168px);aspect-ratio:1;border-radius:50%;
+    border:1px solid var(--rule);background:var(--cream-2);
+    display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;
+    font-family:var(--mono);font-size:12px;letter-spacing:.05em;color:var(--muted);
+  }
+  .about-text{font-size:clamp(18px,2.2vw,22px);line-height:1.5;color:var(--ink);max-width:46ch;}
+
+  /* contact + footer cross-links */
+  .contact-links{align-items:center;}
+  .foot-links{display:flex;gap:16px;}
+  .foot-links a{transition:color .18s;}
+  .foot-links a:hover{color:var(--link-accent);}
+
+  /* responsive — new sections collapse to one column on mobile */
+  @media(max-width:760px){
+    .steps{grid-template-columns:1fr;gap:30px;}
+    .about{grid-template-columns:1fr;gap:24px;}
+  }

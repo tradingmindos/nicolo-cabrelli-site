@@ -1,10 +1,12 @@
 ---
-import { i18n, DEFAULT_LANG } from '../i18n/strings';
-const t = i18n[DEFAULT_LANG];
+import { LINKEDIN, GITHUB, VAT } from '../lib/site';
 ---
 <footer>
   <div class="wrap">
-    <span data-i18n="foot_l" set:html={t.foot_l}></span>
-    <span>© 2026</span>
+    <span>© 2026 Nicolò Cabrelli · P.IVA {VAT}</span>
+    <span class="foot-links">
+      <a href={LINKEDIN} target="_blank" rel="noopener">LinkedIn</a>
+      <a href={GITHUB} target="_blank" rel="noopener">GitHub</a>
+    </span>
   </div>
 </footer>
