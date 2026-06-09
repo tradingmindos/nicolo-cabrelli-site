@@ -20,6 +20,9 @@ const {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(ogImage, Astro.site);
 const ogLocale = lang === 'it' ? 'it_IT' : 'en_US';
+
+const fontsHref =
+  'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap';
 ---
 <!DOCTYPE html>
 <html lang={lang}>
@@ -50,7 +53,10 @@ const ogLocale = lang === 'it' ? 'it_IT' : 'en_US';
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <!-- Fonts loaded async (non render-blocking): preload, then swap media on load. -->
+  <link rel="preload" as="style" href={fontsHref} />
+  <link rel="stylesheet" href={fontsHref} media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href={fontsHref} /></noscript>
 
   {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
 
