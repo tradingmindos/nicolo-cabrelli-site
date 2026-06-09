@@ -8,8 +8,36 @@ import CasoStudio from '../components/Work.astro';
 import ChiSono from '../components/ChiSono.astro';
 import Contatti from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
+import { SITE_URL, LINKEDIN, GITHUB, WHATSAPP_NUMBER } from '../lib/site';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Nicolò Cabrelli — Siti web',
+  description:
+    'Realizzo siti web per ristoranti, negozi, B&B e agriturismi a Pontremoli e in Lunigiana.',
+  url: SITE_URL,
+  areaServed: [
+    { '@type': 'City', name: 'Pontremoli' },
+    { '@type': 'AdministrativeArea', name: 'Lunigiana' },
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Pontremoli',
+    addressRegion: 'MS',
+    addressCountry: 'IT',
+  },
+  priceRange: '€€',
+  telephone: WHATSAPP_NUMBER,
+  sameAs: [LINKEDIN, GITHUB],
+};
 ---
-<Layout lang="it">
+<Layout
+  lang="it"
+  title="Siti web per attività in Lunigiana | Nicolò Cabrelli — Pontremoli"
+  description="Realizzo siti web per ristoranti, negozi, B&B e agriturismi a Pontremoli e in Lunigiana. Online in 14 giorni, a partire da 1.200 €. Scrivimi su WhatsApp."
+  jsonLd={jsonLd}
+>
   <TopBar navLabel={'For startups & agencies →'} navHref="/pro" />
   <Hero />
   <Servizi />
