@@ -1,0 +1,31 @@
+---
+import { i18n, DEFAULT_LANG } from '../i18n/strings';
+const t = i18n[DEFAULT_LANG];
+---
+<header class="hero">
+  <div class="wrap">
+    <h1>Nicolò<br>Cabrelli</h1>
+    <div class="roles" data-i18n="roles" set:html={t.roles}></div>
+
+    <svg class="price-line" viewBox="0 0 560 46" aria-hidden="true" preserveAspectRatio="none">
+      <path d="M0 34 L70 30 L120 36 L170 22 L230 27 L300 12 L360 20 L420 8 L490 16 L560 4" />
+      <circle class="n1" cx="300" cy="12" r="3.4" />
+      <circle class="n2" cx="560" cy="4" r="3.4" />
+    </svg>
+
+    <div class="status">
+      <span data-i18n="loc" set:html={t.loc}></span><span class="dot">·</span>
+      <span>CET</span><span class="dot">·</span>
+      <span data-i18n="remote" set:html={t.remote}></span><span class="dot">·</span>
+      <span data-i18n="avail" set:html={t.avail}></span>
+    </div>
+
+    <p class="lede" data-i18n="lede" set:html={t.lede}></p>
+
+    <div class="hero-links">
+      <a class="btn btn--primary" href="mailto:nicocabrelli@gmail.com" data-i18n="cta_mail" set:html={t.cta_mail}></a>
+      <a class="btn" href="https://www.linkedin.com/in/nicolocabrelli-tradingmindos" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="https://github.com/tradingmindos" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,37 @@
+---
+import { i18n, DEFAULT_LANG } from '../i18n/strings';
+const t = i18n[DEFAULT_LANG];
+---
+<section class="section">
+  <div class="wrap">
+    <div class="work-head">
+      <p class="eyebrow reveal" data-i18n="eb_work" set:html={t.eb_work}></p>
+    </div>
+
+    <article class="project reveal">
+      <div class="ptop">
+        <h3><a href="https://tradingmindos.com" target="_blank" rel="noopener">Trading Mind OS ↗</a></h3>
+        <span class="tag tag--live" data-i18n="t_live" set:html={t.t_live}></span>
+      </div>
+      <p data-i18n="p_tmo" set:html={t.p_tmo}></p>
+      <div class="stack-line">React · Vite · Supabase / PostgreSQL · Cloudflare · Anthropic API · MetaTrader 5</div>
+    </article>
+
+    <article class="project reveal">
+      <div class="ptop">
+        <h3><a href="https://taxi-pontremoli.com" target="_blank" rel="noopener">Taxi Pontremoli ↗</a></h3>
+        <span class="tag tag--live" data-i18n="t_live2" set:html={t.t_live2}></span>
+      </div>
+      <p data-i18n="p_taxi" set:html={t.p_taxi}></p>
+      <div class="stack-line">Astro · Tailwind CSS · Cloudflare Pages · Technical SEO</div>
+    </article>
+
+    <article class="project reveal">
+      <div class="ptop">
+        <h3 data-i18n="p_wip_h" set:html={t.p_wip_h}></h3>
+        <span class="tag" data-i18n="t_wip" set:html={t.t_wip}></span>
+      </div>
+      <p data-i18n="p_wip" set:html={t.p_wip}></p>
+    </article>
+  </div>
+</section>

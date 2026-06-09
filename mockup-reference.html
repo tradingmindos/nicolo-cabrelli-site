@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nicolò Cabrelli — Full-stack developer, founder, trader</title>
+<meta name="description" content="Self-taught full-stack developer and solo founder. I build software end-to-end and trade the markets I build it for." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* brand constants */
+    --bordeaux:#7C1F2C;
+    --gold:#B8965A;
+    --gold-line:#C4A368;
+    --maxw:1080px;
+    --display:"Playfair Display",Georgia,serif;
+    --body:"Hanken Grotesk",system-ui,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+
+    /* terminal-world constants — these NEVER flip with theme */
+    --ink-fixed:#0E0E0F;
+    --ink-fixed-2:#16161A;
+    --light-fixed:#F1ECE2;
+    --mutedlight-fixed:#9A938A;
+
+    /* LIGHT theme (default) — editorial cream */
+    --cream:#F1ECE2;       /* page bg */
+    --cream-2:#E7E0D3;
+    --ink:#0E0E0F;         /* primary text */
+    --ink-2:#16161A;       /* dark-section panel */
+    --muted:#6B6358;       /* secondary text on bg */
+    --muted-dark:#9A938A;  /* secondary text on ink sections */
+    --rule:rgba(14,14,15,.14);
+    --rule-dark:rgba(184,150,90,.22);
+    --link-accent:var(--bordeaux);
+    --topbar-bg:color-mix(in srgb,#F1ECE2 88%,transparent);
+  }
+
+  /* DARK theme — the terminal world takes over the whole page */
+  [data-theme="dark"]{
+    --cream:#0E0E0F;       /* page bg becomes ink */
+    --cream-2:#16161A;
+    --ink:#ECE6DA;         /* primary text becomes warm light */
+    --ink-2:#1C1C20;
+    --muted:#9A938A;
+    --muted-dark:#8C857B;
+    --rule:rgba(236,230,218,.14);
+    --rule-dark:rgba(184,150,90,.26);
+    --link-accent:var(--gold);
+    --topbar-bg:color-mix(in srgb,#0E0E0F 86%,transparent);
+  }
+  /* in dark mode the page is dark too, so ink sections drop a step lower and get hairlines to stay distinct */
+  [data-theme="dark"] .section--ink{background:#070709;border-top:1px solid var(--rule-dark);border-bottom:1px solid var(--rule-dark);}
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--gold);color:var(--ink-fixed);}
+  a{color:inherit;text-decoration:none;}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--link-accent);outline-offset:3px;border-radius:2px;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:20;
+    background:var(--topbar-bg);
+    backdrop-filter:saturate(1.2) blur(8px);
+    border-bottom:1px solid var(--rule);
+  }
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;}
+  .monogram{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:.02em;}
+  .monogram .dot{color:var(--bordeaux);}
+  .lang{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;display:flex;gap:2px;align-items:center;}
+  .lang button{
+    background:none;border:none;cursor:pointer;font:inherit;color:var(--muted);
+    padding:4px 5px;transition:color .18s;
+  }
+  .lang button:hover{color:var(--ink);}
+  .lang button.active{color:var(--link-accent);font-weight:500;}
+  .lang .sep{color:var(--rule);}
+  .controls{display:flex;align-items:center;gap:4px;}
+  .theme-toggle{
+    background:none;border:none;cursor:pointer;color:var(--muted);
+    display:inline-flex;align-items:center;padding:5px 6px;margin-left:8px;transition:color .18s;
+  }
+  .theme-toggle:hover{color:var(--ink);}
+  .theme-toggle svg{width:17px;height:17px;display:block;}
+  .theme-toggle .i-sun{display:none;}
+  [data-theme="dark"] .theme-toggle .i-moon{display:none;}
+  [data-theme="dark"] .theme-toggle .i-sun{display:block;}
+
+  /* ---------- sections ---------- */
+  .section{padding:clamp(56px,9vw,108px) 0;}
+  .section--ink{background:var(--ink-fixed);color:var(--light-fixed);}
+  .eyebrow{
+    font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--link-accent);margin-bottom:26px;
+  }
+  .section--ink .eyebrow{color:var(--gold);}
+
+  /* ---------- hero ---------- */
+  .hero{padding:clamp(60px,11vw,130px) 0 clamp(48px,7vw,84px);position:relative;}
+  .hero h1{
+    font-family:var(--display);font-weight:700;
+    font-size:clamp(46px,9vw,104px);line-height:.98;letter-spacing:-.015em;
+  }
+  .hero .roles{
+    font-family:var(--mono);font-size:clamp(13px,1.7vw,16px);
+    letter-spacing:.04em;color:var(--muted);margin-top:22px;
+  }
+  .hero .roles b{color:var(--ink);font-weight:500;}
+  .price-line{display:block;width:100%;max-width:560px;height:46px;margin:30px 0 4px;overflow:visible;}
+  .price-line path{
+    fill:none;stroke:var(--gold-line);stroke-width:1.6;
+    stroke-linecap:round;stroke-linejoin:round;
+    stroke-dasharray:1400;stroke-dashoffset:1400;
+    animation:draw 2.1s cubic-bezier(.6,.02,.2,1) .25s forwards;
+  }
+  .price-line circle{fill:var(--bordeaux);opacity:0;animation:pop .4s ease forwards;}
+  .price-line circle.n1{animation-delay:1.5s;}
+  .price-line circle.n2{animation-delay:1.9s;}
+  @keyframes draw{to{stroke-dashoffset:0;}}
+  @keyframes pop{to{opacity:1;}}
+
+  .status{
+    font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;
+    color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 12px;margin-top:10px;
+  }
+  .status .dot{color:var(--gold);}
+  .lede{
+    font-size:clamp(19px,2.4vw,24px);line-height:1.45;max-width:34ch;margin-top:34px;
+    color:var(--ink);
+  }
+  .hero-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px;}
+  .btn{
+    font-family:var(--mono);font-size:13px;letter-spacing:.03em;
+    border:1px solid var(--ink);padding:11px 18px;transition:.2s;
+    display:inline-flex;align-items:center;gap:7px;
+  }
+  .btn:hover{background:var(--ink);color:var(--cream);}
+  .btn--primary{background:var(--bordeaux);border-color:var(--bordeaux);color:var(--light-fixed);}
+  .btn--primary:hover{background:#651825;border-color:#651825;}
+
+  /* ---------- what i do ---------- */
+  .stanzas{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,4vw,56px);}
+  .stanza h3{font-family:var(--display);font-weight:600;font-size:25px;margin-bottom:10px;}
+  .stanza .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:14px;}
+  .stanza p{color:var(--muted);font-size:16px;}
+
+  /* ---------- work ---------- */
+  .work-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+  .project{
+    border-top:1px solid var(--rule);padding:38px 0;
+    display:grid;grid-template-columns:1fr;gap:14px;
+  }
+  .project:last-child{border-bottom:1px solid var(--rule);}
+  .project .ptop{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+  .project h3{font-family:var(--display);font-weight:600;font-size:clamp(26px,3.4vw,38px);letter-spacing:-.01em;}
+  .project h3 a{transition:color .18s;border-bottom:1px solid transparent;}
+  .project h3 a:hover{color:var(--link-accent);border-bottom-color:var(--link-accent);}
+  .tag{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border:1px solid var(--rule);color:var(--muted);white-space:nowrap;}
+  .tag--live{color:var(--link-accent);border-color:var(--link-accent);}
+  .project p{color:var(--muted);max-width:62ch;}
+  .stack-line{font-family:var(--mono);font-size:12.5px;letter-spacing:.02em;color:var(--ink);opacity:.7;}
+
+  /* ---------- stack (ink) ---------- */
+  .stack-grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+    gap:1px;background:var(--rule-dark);border:1px solid var(--rule-dark);
+  }
+  .stack-cell{
+    background:var(--ink-fixed);padding:16px 18px;
+    font-family:var(--mono);font-size:13px;letter-spacing:.02em;color:var(--light-fixed);
+    display:flex;align-items:center;gap:9px;transition:background .2s;
+  }
+  .stack-cell:hover{background:var(--ink-fixed-2);}
+  [data-theme="dark"] .stack-cell{background:var(--ink-fixed-2);}
+  [data-theme="dark"] .stack-cell:hover{background:#202026;}
+  .stack-cell .idx{color:var(--gold);font-size:11px;}
+
+  /* ---------- markets (ink) ---------- */
+  .markets-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(28px,5vw,64px);align-items:start;}
+  .markets h2{font-family:var(--display);font-weight:600;font-size:clamp(30px,4.4vw,52px);line-height:1.04;letter-spacing:-.01em;}
+  .markets p{color:var(--mutedlight-fixed);max-width:50ch;margin-top:20px;}
+  .ticker{border:1px solid var(--rule-dark);padding:22px 24px;font-family:var(--mono);font-size:13px;}
+  .ticker .row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--rule-dark);color:var(--mutedlight-fixed);letter-spacing:.03em;}
+  .ticker .row:last-child{border-bottom:none;}
+  .ticker .row b{color:var(--gold);font-weight:500;}
+
+  /* ---------- contact ---------- */
+  .contact h2{font-family:var(--display);font-weight:700;font-size:clamp(40px,7vw,80px);line-height:1;letter-spacing:-.015em;}
+  .contact p{font-size:clamp(18px,2.2vw,21px);color:var(--muted);max-width:40ch;margin-top:24px;}
+  .contact-links{display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:36px;}
+  .clink{font-family:var(--mono);font-size:14px;letter-spacing:.02em;padding-bottom:3px;border-bottom:1px solid var(--rule);transition:.2s;}
+  .clink:hover{border-bottom-color:var(--link-accent);color:var(--link-accent);}
+
+  footer{border-top:1px solid var(--rule);padding:30px 0;}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--muted);}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:760px){
+    .stanzas{grid-template-columns:1fr;gap:34px;}
+    .markets-grid{grid-template-columns:1fr;}
+    .hero .lede{max-width:none;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{scroll-behavior:auto;}
+    .price-line path{animation:none;stroke-dashoffset:0;}
+    .price-line circle{animation:none;opacity:1;}
+    .reveal{opacity:1;transform:none;transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span class="monogram">NC<span class="dot">.</span></span>
+    <div class="controls">
+      <div class="lang" role="group" aria-label="Language">
+        <button data-lang="it">IT</button><span class="sep">/</span><button data-lang="en" class="active">EN</button>
+      </div>
+      <button class="theme-toggle" id="themeBtn" type="button" aria-label="Toggle dark mode" aria-pressed="false" title="Light / dark">
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.3M12 19.7V22M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2 12h2.3M19.7 12H22M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <h1>Nicolò<br>Cabrelli</h1>
+    <div class="roles" data-i18n="roles"></div>
+
+    <svg class="price-line" viewBox="0 0 560 46" aria-hidden="true" preserveAspectRatio="none">
+      <path d="M0 34 L70 30 L120 36 L170 22 L230 27 L300 12 L360 20 L420 8 L490 16 L560 4" />
+      <circle class="n1" cx="300" cy="12" r="3.4" />
+      <circle class="n2" cx="560" cy="4" r="3.4" />
+    </svg>
+
+    <div class="status">
+      <span data-i18n="loc">Pontremoli, IT</span><span class="dot">·</span>
+      <span>CET</span><span class="dot">·</span>
+      <span data-i18n="remote">Remote</span><span class="dot">·</span>
+      <span data-i18n="avail">Open to work</span>
+    </div>
+
+    <p class="lede" data-i18n="lede"></p>
+
+    <div class="hero-links">
+      <a class="btn btn--primary" href="mailto:nicocabrelli@gmail.com" data-i18n="cta_mail">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/nicolocabrelli-tradingmindos" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="https://github.com/tradingmindos" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+</header>
+
+<!-- WHAT I DO -->
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow reveal" data-i18n="eb_do">What I do</p>
+    <div class="stanzas">
+      <div class="stanza reveal">
+        <span class="k" data-i18n="do1_k">Build</span>
+        <h3 data-i18n="do1_h"></h3>
+        <p data-i18n="do1_p"></p>
+      </div>
+      <div class="stanza reveal">
+        <span class="k" data-i18n="do2_k">Ship</span>
+        <h3 data-i18n="do2_h"></h3>
+        <p data-i18n="do2_p"></p>
+      </div>
+      <div class="stanza reveal">
+        <span class="k" data-i18n="do3_k">Trade</span>
+        <h3 data-i18n="do3_h"></h3>
+        <p data-i18n="do3_p"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="section">
+  <div class="wrap">
+    <div class="work-head">
+      <p class="eyebrow reveal" data-i18n="eb_work">Selected work</p>
+    </div>
+
+    <article class="project reveal">
+      <div class="ptop">
+        <h3><a href="https://tradingmindos.com" target="_blank" rel="noopener">Trading Mind OS ↗</a></h3>
+        <span class="tag tag--live" data-i18n="t_live">Live</span>
+      </div>
+      <p data-i18n="p_tmo"></p>
+      <div class="stack-line">React · Vite · Supabase / PostgreSQL · Cloudflare · Anthropic API · MetaTrader 5</div>
+    </article>
+
+    <article class="project reveal">
+      <div class="ptop">
+        <h3><a href="https://taxi-pontremoli.com" target="_blank" rel="noopener">Taxi Pontremoli ↗</a></h3>
+        <span class="tag tag--live" data-i18n="t_live2">Live</span>
+      </div>
+      <p data-i18n="p_taxi"></p>
+      <div class="stack-line">Astro · Tailwind CSS · Cloudflare Pages · Technical SEO</div>
+    </article>
+
+    <article class="project reveal">
+      <div class="ptop">
+        <h3 data-i18n="p_wip_h">Currently building</h3>
+        <span class="tag" data-i18n="t_wip">In progress</span>
+      </div>
+      <p data-i18n="p_wip"></p>
+    </article>
+  </div>
+</section>
+
+<!-- STACK -->
+<section class="section section--ink">
+  <div class="wrap">
+    <p class="eyebrow reveal" data-i18n="eb_stack">Stack</p>
+    <div class="stack-grid reveal">
+      <div class="stack-cell"><span class="idx">01</span>JavaScript</div>
+      <div class="stack-cell"><span class="idx">02</span>React</div>
+      <div class="stack-cell"><span class="idx">03</span>Vite</div>
+      <div class="stack-cell"><span class="idx">04</span>Node.js</div>
+      <div class="stack-cell"><span class="idx">05</span>Supabase</div>
+      <div class="stack-cell"><span class="idx">06</span>PostgreSQL</div>
+      <div class="stack-cell"><span class="idx">07</span>Cloudflare</div>
+      <div class="stack-cell"><span class="idx">08</span>REST APIs</div>
+      <div class="stack-cell"><span class="idx">09</span>Astro</div>
+      <div class="stack-cell"><span class="idx">10</span>Tailwind</div>
+      <div class="stack-cell"><span class="idx">11</span>Git</div>
+      <div class="stack-cell"><span class="idx">12</span>Anthropic API</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKETS -->
+<section class="section section--ink markets">
+  <div class="wrap">
+    <p class="eyebrow reveal" data-i18n="eb_mkt">On the markets</p>
+    <div class="markets-grid">
+      <div class="reveal">
+        <h2 data-i18n="mkt_h"></h2>
+        <p data-i18n="mkt_p"></p>
+      </div>
+      <div class="ticker reveal">
+        <div class="row"><span data-i18n="tk1">Primary</span><b>XAU/USD</b></div>
+        <div class="row"><span data-i18n="tk2">Also</span><b>FX · Indices</b></div>
+        <div class="row"><span data-i18n="tk3">Style</span><b data-i18n="tk3v">Discretionary</b></div>
+        <div class="row"><span data-i18n="tk4">Tools</span><b>TradingView · MT5</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact">
+  <div class="wrap">
+    <p class="eyebrow reveal" data-i18n="eb_talk">Get in touch</p>
+    <h2 class="reveal" data-i18n="talk_h"></h2>
+    <p class="reveal" data-i18n="talk_p"></p>
+    <div class="contact-links reveal">
+      <a class="clink" href="mailto:nicocabrelli@gmail.com">nicocabrelli@gmail.com</a>
+      <a class="clink" href="https://www.linkedin.com/in/nicolocabrelli-tradingmindos" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="clink" href="https://github.com/tradingmindos" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="clink" href="https://tradingmindos.com" target="_blank" rel="noopener">tradingmindos.com ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span data-i18n="foot_l">Designed &amp; built by Nicolò Cabrelli</span>
+    <span>© 2026</span>
+  </div>
+</footer>
+
+<script>
+  const i18n = {
+    en:{
+      roles:'Full-stack developer &nbsp;·&nbsp; <b>Solo founder</b> &nbsp;·&nbsp; Trader',
+      loc:'Pontremoli, IT', remote:'Remote', avail:'Open to work',
+      lede:'I’m a self-taught developer who ships products end-to-end — and a trader who uses them. I built and launched a live SaaS on my own.',
+      cta_mail:'Email me',
+      eb_do:'What I do',
+      do1_k:'Build', do1_h:'End to end',
+      do1_p:'I design and build full-stack web apps — database, backend, and interface — and take them all the way to production.',
+      do2_k:'Ship', do2_h:'Solo and fast',
+      do2_p:'Trading Mind OS went from idea to a live product with real users, architected and built entirely by me.',
+      do3_k:'Trade', do3_h:'In the markets',
+      do3_p:'I trade gold and FX discretionarily. Living in the markets is what tells me which tools are worth building.',
+      eb_work:'Selected work', t_live:'Live', t_live2:'Live', t_wip:'In progress',
+      p_tmo:'A trading-psychology SaaS, designed and built solo, end to end. Authentication, a Postgres backend with row-level security, a configurable dashboard, a multi-currency system, a server-side Anthropic API integration, and a custom MetaTrader 5 bridge that syncs live trades into the platform.',
+      p_taxi:'A complete production website for a local business, delivered end to end: fast, SEO-optimized, and deployed on Cloudflare.',
+      p_wip_h:'Currently building', p_wip:'A broader ecosystem of tools for traders. More soon.',
+      eb_stack:'Stack',
+      eb_mkt:'On the markets',
+      mkt_h:'I build the tools, and I use them.',
+      mkt_p:'I trade discretionarily — gold (XAU/USD) mostly, plus FX and indices — on TradingView and MT5. No signals, no return claims. The point is simpler: building for traders and being one sharpen each other.',
+      tk1:'Primary', tk2:'Also', tk3:'Style', tk3v:'Discretionary', tk4:'Tools',
+      eb_talk:'Get in touch', talk_h:'Let’s talk.',
+      talk_p:'Open to remote full-stack roles, freelance projects, and anything at the intersection of software and markets.',
+      foot_l:'Designed & built by Nicolò Cabrelli'
+    },
+    it:{
+      roles:'Sviluppatore full-stack &nbsp;·&nbsp; <b>Founder</b> &nbsp;·&nbsp; Trader',
+      loc:'Pontremoli, IT', remote:'Da remoto', avail:'Disponibile',
+      lede:'Sono uno sviluppatore autodidatta che porta i prodotti dall’inizio alla fine — e un trader che li usa. Ho costruito e lanciato un SaaS live da solo.',
+      cta_mail:'Scrivimi',
+      eb_do:'Cosa faccio',
+      do1_k:'Costruire', do1_h:'Dall’inizio alla fine',
+      do1_p:'Progetto e costruisco web app full-stack — database, backend e interfaccia — e le porto fino alla produzione.',
+      do2_k:'Spedire', do2_h:'Da solo e in fretta',
+      do2_p:'Trading Mind OS è passato dall’idea a un prodotto live con utenti reali, progettato e costruito interamente da me.',
+      do3_k:'Tradare', do3_h:'Dentro i mercati',
+      do3_p:'Faccio trading discrezionale su oro e forex. Vivere i mercati è ciò che mi dice quali strumenti vale la pena costruire.',
+      eb_work:'Progetti selezionati', t_live:'Live', t_live2:'Live', t_wip:'In corso',
+      p_tmo:'Un SaaS di trading-psychology, progettato e costruito da solo, end to end. Autenticazione, backend Postgres con row-level security, dashboard configurabile, sistema multi-valuta, integrazione server-side dell’API Anthropic e un bridge MetaTrader 5 che sincronizza i trade in tempo reale.',
+      p_taxi:'Un sito di produzione completo per un’attività locale, consegnato end to end: veloce, ottimizzato SEO e deployato su Cloudflare.',
+      p_wip_h:'In costruzione', p_wip:'Un ecosistema più ampio di strumenti per i trader. Presto altro.',
+      eb_stack:'Stack',
+      eb_mkt:'Sui mercati',
+      mkt_h:'Costruisco gli strumenti, e li uso.',
+      mkt_p:'Faccio trading discrezionale — oro (XAU/USD) soprattutto, più forex e indici — su TradingView e MT5. Niente segnali, niente promesse di rendimento. Il punto è più semplice: costruire per i trader ed esserlo si affinano a vicenda.',
+      tk1:'Principale', tk2:'Anche', tk3:'Stile', tk3v:'Discrezionale', tk4:'Strumenti',
+      eb_talk:'Contatti', talk_h:'Parliamone.',
+      talk_p:'Disponibile per ruoli full-stack da remoto, progetti freelance e tutto ciò che sta tra software e mercati.',
+      foot_l:'Progettato e costruito da Nicolò Cabrelli'
+    }
+  };
+
+  function applyLang(lang){
+    const dict = i18n[lang];
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      const key = el.getAttribute('data-i18n');
+      if(dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('.lang button').forEach(b=>{
+      b.classList.toggle('active', b.dataset.lang === lang);
+    });
+  }
+
+  document.querySelectorAll('.lang button').forEach(b=>{
+    b.addEventListener('click',()=>applyLang(b.dataset.lang));
+  });
+
+  applyLang('en');
+
+  // theme toggle (light / dark) — in-memory only, default light
+  const themeBtn = document.getElementById('themeBtn');
+  let theme = 'light';
+  function applyTheme(t){
+    if(t === 'dark') document.documentElement.setAttribute('data-theme','dark');
+    else document.documentElement.removeAttribute('data-theme');
+    themeBtn.setAttribute('aria-pressed', t === 'dark');
+  }
+  themeBtn.addEventListener('click',()=>{
+    theme = (theme === 'dark') ? 'light' : 'dark';
+    applyTheme(theme);
+  });
+
+  // scroll reveal
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce && 'IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+  }
+</script>
+</body>
+</html>

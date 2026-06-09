@@ -1,0 +1,17 @@
+---
+import { i18n, DEFAULT_LANG } from '../i18n/strings';
+const t = i18n[DEFAULT_LANG];
+---
+<section class="section contact">
+  <div class="wrap">
+    <p class="eyebrow reveal" data-i18n="eb_talk" set:html={t.eb_talk}></p>
+    <h2 class="reveal" data-i18n="talk_h" set:html={t.talk_h}></h2>
+    <p class="reveal" data-i18n="talk_p" set:html={t.talk_p}></p>
+    <div class="contact-links reveal">
+      <a class="clink" href="mailto:nicocabrelli@gmail.com">nicocabrelli@gmail.com</a>
+      <a class="clink" href="https://www.linkedin.com/in/nicolocabrelli-tradingmindos" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="clink" href="https://github.com/tradingmindos" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="clink" href="https://tradingmindos.com" target="_blank" rel="noopener">tradingmindos.com ↗</a>
+    </div>
+  </div>
+</section>
