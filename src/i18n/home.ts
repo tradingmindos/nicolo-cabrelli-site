@@ -18,7 +18,7 @@ interface HomeStrings {
   servizi: { eyebrow: string; msgLink: string; cards: ServiceCard[] };
   come: { eyebrow: string; steps: { n: string; h: string; p: string }[] };
   caso: { eyebrow: string; mediaAlt: string; taxiTag: string; taxiP: string; tmoTag: string; tmoP: string };
-  chi: { eyebrow: string; text: string };
+  chi: { eyebrow: string; photoAlt: string; text: string };
   contatti: { eyebrow: string; h2: string; p: string; cta: string };
   email: { subject: string; body: string; ctaPreset: string; ctaFree: string };
   wa: Record<WaKey, string>;
@@ -61,6 +61,7 @@ export const home: Record<HomeLang, HomeStrings> = {
     },
     chi: {
       eyebrow: 'Chi sono',
+      photoAlt: 'Nicolò Cabrelli',
       text: 'Sono Nicolò, sviluppatore web. Sono nato e vivo qui, in Lunigiana. Costruisco siti e prodotti web completi, con la stessa cura che metto nei miei progetti. Se sei in zona, il preventivo lo facciamo davanti a un caffè.',
     },
     contatti: {
@@ -119,6 +120,7 @@ export const home: Record<HomeLang, HomeStrings> = {
     },
     chi: {
       eyebrow: 'About',
+      photoAlt: 'Nicolò Cabrelli',
       text: "I'm Nicolò, a web developer, born and raised here in Lunigiana. I build complete websites and web products with the same care I put into my own. If you're nearby, we can go over your quote in person — over a coffee.",
     },
     contatti: {
