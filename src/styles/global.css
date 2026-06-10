@@ -278,8 +278,9 @@
   /* about */
   .about{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,4vw,48px);align-items:center;}
   .about-photo{
-    width:clamp(120px,18vw,168px);aspect-ratio:1;border-radius:50%;
-    object-fit:cover;border:1px solid var(--rule);display:block;
+    width:clamp(120px,18vw,168px);height:clamp(120px,18vw,168px);
+    border-radius:50%;object-fit:cover;border:1px solid var(--rule);
+    display:block;align-self:center;
   }
   .about-text{font-size:clamp(18px,2.2vw,22px);line-height:1.5;color:var(--ink);max-width:46ch;}
 
