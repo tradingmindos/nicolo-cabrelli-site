@@ -267,10 +267,8 @@
   /* case study */
   .project--case{border-top:none;padding-top:0;}
   .case-media{
-    aspect-ratio:16/9;width:100%;border:1px solid var(--rule);background:var(--cream-2);
-    display:flex;align-items:center;justify-content:center;
-    font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--muted);
-    margin-bottom:6px;
+    display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;
+    border:1px solid var(--rule);margin-bottom:6px;
   }
   .quote{
     font-size:19px;line-height:1.5;color:var(--ink);max-width:60ch;
