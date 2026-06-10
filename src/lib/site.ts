@@ -15,3 +15,10 @@ export const LINKEDIN = 'https://www.linkedin.com/in/nicolocabrelli-tradingmindo
 export const GITHUB = 'https://github.com/tradingmindos';
 
 export const VAT = '[P.IVA]';
+
+// hreflang alternates for the homepage (IT is the default, EN lives at /en/).
+export const HOME_ALTERNATES = [
+  { hreflang: 'it', href: `${SITE_URL}/` },
+  { hreflang: 'en', href: `${SITE_URL}/en/` },
+  { hreflang: 'x-default', href: `${SITE_URL}/` },
+];

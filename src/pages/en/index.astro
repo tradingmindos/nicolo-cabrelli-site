@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TopBar from '../../components/TopBar.astro';
+import Hero from '../../components/Hero.astro';
+import Servizi from '../../components/WhatIDo.astro';
+import ComeFunziona from '../../components/ComeFunziona.astro';
+import CasoStudio from '../../components/Work.astro';
+import ChiSono from '../../components/ChiSono.astro';
+import Contatti from '../../components/Contact.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_URL, LINKEDIN, GITHUB, WHATSAPP_NUMBER, HOME_ALTERNATES } from '../../lib/site';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Nicolò Cabrelli — Websites',
+  description:
+    'I build websites for restaurants, shops, B&Bs and farm stays in Pontremoli and Lunigiana.',
+  url: `${SITE_URL}/en/`,
+  areaServed: [
+    { '@type': 'City', name: 'Pontremoli' },
+    { '@type': 'AdministrativeArea', name: 'Lunigiana' },
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Pontremoli',
+    addressRegion: 'MS',
+    addressCountry: 'IT',
+  },
+  priceRange: '€€',
+  telephone: WHATSAPP_NUMBER,
+  sameAs: [LINKEDIN, GITHUB],
+};
+---
+<Layout
+  lang="en"
+  title="Websites for businesses in Lunigiana | Nicolò Cabrelli — Pontremoli"
+  description="I build websites for restaurants, shops, B&Bs and farm stays in Pontremoli and Lunigiana. Online in 14 days, from €1,200. Message me on WhatsApp."
+  jsonLd={jsonLd}
+  alternates={HOME_ALTERNATES}
+>
+  <TopBar lang="en" />
+  <Hero lang="en" />
+  <Servizi lang="en" />
+  <ComeFunziona lang="en" />
+  <CasoStudio lang="en" />
+  <ChiSono lang="en" />
+  <Contatti lang="en" />
+  <Footer lang="en" />
+</Layout>

@@ -7,6 +7,7 @@ interface Props {
   description?: string;
   ogImage?: string;
   jsonLd?: Record<string, unknown>;
+  alternates?: { hreflang: string; href: string }[];
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   description = 'Realizzo siti web per ristoranti, negozi, B&B e agriturismi a Pontremoli e in Lunigiana. Online in 14 giorni, a partire da 1.200 €.',
   ogImage = '/og.png',
   jsonLd,
+  alternates,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -32,6 +34,7 @@ const fontsHref =
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalURL} />
+  {alternates?.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
   <!-- Open Graph -->

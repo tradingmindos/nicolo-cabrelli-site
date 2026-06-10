@@ -12,13 +12,18 @@ interface Props {
 const { lang = 'it', navLabel, navHref } = Astro.props;
 const t = home[lang];
 
+// Homepage mode (no explicit nav override) shows the language switch.
+const isHome = navLabel === undefined && navHref === undefined;
 const linkLabel = navLabel ?? t.topbar.pro;
 const linkHref = navHref ?? '/pro';
+const langSwitch = lang === 'it' ? { label: 'EN', href: '/en/' } : { label: 'IT', href: '/' };
+const langSwitchAria = lang === 'it' ? 'English version' : 'Versione in italiano';
 ---
 <div class="topbar">
   <div class="wrap">
     <span class="monogram">NC<span class="dot">.</span></span>
     <div class="controls">
+      {isHome && <a class="lang-switch" href={langSwitch.href} aria-label={langSwitchAria}>{langSwitch.label}</a>}
       <a class="topnav-link" href={linkHref}>{linkLabel}</a>
       <button class="theme-toggle" id="themeBtn" type="button" aria-label="Toggle dark mode" aria-pressed="false" title="Light / dark">
         <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>

@@ -224,6 +224,11 @@
     color:var(--muted);padding:4px 6px;transition:color .18s;white-space:nowrap;
   }
   .topnav-link:hover{color:var(--link-accent);}
+  .lang-switch{
+    font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;
+    color:var(--muted);padding:4px 6px;transition:color .18s;
+  }
+  .lang-switch:hover{color:var(--link-accent);}
 
   /* hero (commercial) */
   .hero-sub{
