@@ -19,7 +19,7 @@ export function mailtoHref(subject: string, body: string) {
 export const LINKEDIN = 'https://www.linkedin.com/in/nicolocabrelli-tradingmindos';
 export const GITHUB = 'https://github.com/tradingmindos';
 
-export const VAT = '[P.IVA]';
+export const VAT = '90021180451';
 
 // hreflang alternates for the homepage (IT is the default, EN lives at /en/).
 export const HOME_ALTERNATES = [
