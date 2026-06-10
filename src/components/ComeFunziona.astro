@@ -1,25 +1,21 @@
 ---
-// New section: how the process works, in three plain steps.
+import { home, type HomeLang } from '../i18n/home';
+
+interface Props { lang?: HomeLang }
+const { lang = 'it' } = Astro.props;
+const t = home[lang];
 ---
 <section class="section">
   <div class="wrap">
-    <p class="eyebrow reveal">Come funziona</p>
+    <p class="eyebrow reveal">{t.come.eyebrow}</p>
     <div class="steps">
-      <div class="step reveal">
-        <span class="step-n">1</span>
-        <h3>Mi scrivi su WhatsApp</h3>
-        <p>Due righe sulla tua attività e su cosa ti serve.</p>
-      </div>
-      <div class="step reveal">
-        <span class="step-n">2</span>
-        <h3>Preventivo chiaro entro 48 ore</h3>
-        <p>Prezzo fisso e tempi certi, nero su bianco.</p>
-      </div>
-      <div class="step reveal">
-        <span class="step-n">3</span>
-        <h3>Online in 14 giorni</h3>
-        <p>Pubblico il sito, ti spiego come funziona e resto a disposizione.</p>
-      </div>
+      {t.come.steps.map((s) => (
+        <div class="step reveal">
+          <span class="step-n">{s.n}</span>
+          <h3>{s.h}</h3>
+          <p>{s.p}</p>
+        </div>
+      ))}
     </div>
   </div>
 </section>

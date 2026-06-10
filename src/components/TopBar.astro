@@ -1,19 +1,25 @@
 ---
 // Sticky top bar: monogram + discreet cross-link + theme toggle.
-// The language toggle is gone — each page declares its own language.
+// Homepage mode (lang given, no nav* override) reads the /pro link from the
+// dictionary. Other pages (e.g. /pro) pass an explicit navLabel/navHref.
+import { home, type HomeLang } from '../i18n/home';
+
 interface Props {
+  lang?: HomeLang;
   navLabel?: string;
   navHref?: string;
 }
-const { navLabel, navHref } = Astro.props;
+const { lang = 'it', navLabel, navHref } = Astro.props;
+const t = home[lang];
+
+const linkLabel = navLabel ?? t.topbar.pro;
+const linkHref = navHref ?? '/pro';
 ---
 <div class="topbar">
   <div class="wrap">
     <span class="monogram">NC<span class="dot">.</span></span>
     <div class="controls">
-      {navHref && navLabel && (
-        <a class="topnav-link" href={navHref}>{navLabel}</a>
-      )}
+      <a class="topnav-link" href={linkHref}>{linkLabel}</a>
       <button class="theme-toggle" id="themeBtn" type="button" aria-label="Toggle dark mode" aria-pressed="false" title="Light / dark">
         <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
         <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.3M12 19.7V22M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2 12h2.3M19.7 12H22M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>

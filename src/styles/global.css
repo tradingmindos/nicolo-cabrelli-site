@@ -241,6 +241,14 @@
   .btn--wa:hover{background:#651825;border-color:#651825;color:var(--light-fixed);}
   .btn--wa svg{width:19px;height:19px;display:block;}
 
+  /* per-service WhatsApp link */
+  .svc-msg{
+    display:inline-block;margin-top:12px;
+    font-family:var(--mono);font-size:12.5px;letter-spacing:.03em;
+    color:var(--link-accent);border-bottom:1px solid transparent;transition:border-color .18s;
+  }
+  .svc-msg:hover{border-bottom-color:var(--link-accent);}
+
   /* how it works — three steps */
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,4vw,56px);}
   .step{border-top:1px solid var(--rule);padding-top:18px;}

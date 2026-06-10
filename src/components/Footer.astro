@@ -1,5 +1,11 @@
 ---
 import { LINKEDIN, GITHUB, VAT } from '../lib/site';
+import type { HomeLang } from '../i18n/home';
+
+// Footer carries no translatable copy (legal line + social links are
+// language-neutral); the lang prop is accepted for interface consistency.
+interface Props { lang?: HomeLang }
+const { lang: _lang = 'it' } = Astro.props;
 ---
 <footer>
   <div class="wrap">

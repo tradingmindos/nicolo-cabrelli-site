@@ -1,12 +1,16 @@
 ---
-// New section: short, warm personal intro with a photo.
+import { home, type HomeLang } from '../i18n/home';
+
+interface Props { lang?: HomeLang }
+const { lang = 'it' } = Astro.props;
+const t = home[lang];
 ---
 <section class="section">
   <div class="wrap">
-    <p class="eyebrow reveal">Chi sono</p>
+    <p class="eyebrow reveal">{t.chi.eyebrow}</p>
     <div class="about reveal">
       <div class="about-photo">[FOTO-NICO]</div>
-      <p class="about-text">Sono Nicolò, sviluppatore web. Sono nato e vivo qui, in Lunigiana. Costruisco siti e prodotti web completi, con la stessa cura che metto nei miei progetti. Se sei in zona, il preventivo lo facciamo davanti a un caffè.</p>
+      <p class="about-text">{t.chi.text}</p>
     </div>
   </div>
 </section>

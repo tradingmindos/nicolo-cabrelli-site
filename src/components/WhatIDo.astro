@@ -1,25 +1,24 @@
 ---
-// Repurposed from the portfolio "What I do" — now the homepage Services section.
+// Homepage Services section. Each card links to its own prefilled WhatsApp message.
+import { home, type HomeLang } from '../i18n/home';
+import { waHref } from '../lib/site';
+
+interface Props { lang?: HomeLang }
+const { lang = 'it' } = Astro.props;
+const t = home[lang];
 ---
 <section class="section">
   <div class="wrap">
-    <p class="eyebrow reveal">Servizi</p>
+    <p class="eyebrow reveal">{t.servizi.eyebrow}</p>
     <div class="stanzas">
-      <div class="stanza reveal">
-        <span class="k">01</span>
-        <h3>Sito vetrina</h3>
-        <p>Per farti trovare: chi cerca la tua attività su Google trova foto, orari, contatti e la strada per arrivare da te.</p>
-      </div>
-      <div class="stanza reveal">
-        <span class="k">02</span>
-        <h3>Sito completo</h3>
-        <p>Per lavorare di più: menu, prenotazioni, richieste di preventivo, versione in inglese per i turisti.</p>
-      </div>
-      <div class="stanza reveal">
-        <span class="k">03</span>
-        <h3>Gestione continua</h3>
-        <p>Ci penso io, ogni mese: aggiornamenti, modifiche, scheda Google sempre in ordine. Tu pensi al tuo lavoro, il sito lavora per te.</p>
-      </div>
+      {t.servizi.cards.map((c) => (
+        <div class="stanza reveal">
+          <span class="k">{c.k}</span>
+          <h3>{c.h}</h3>
+          <p>{c.p}</p>
+          <a class="svc-msg" href={waHref(t.wa[c.wa])} target="_blank" rel="noopener">{t.servizi.msgLink}</a>
+        </div>
+      ))}
     </div>
   </div>
 </section>
