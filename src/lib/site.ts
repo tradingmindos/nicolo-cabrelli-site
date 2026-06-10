@@ -11,6 +11,11 @@ export function waHref(text: string) {
 }
 
 export const EMAIL = 'nicocabrelli@gmail.com';
+
+// Build a mailto link with a prefilled, URL-encoded subject and body.
+export function mailtoHref(subject: string, body: string) {
+  return `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
 export const LINKEDIN = 'https://www.linkedin.com/in/nicolocabrelli-tradingmindos';
 export const GITHUB = 'https://github.com/tradingmindos';
 

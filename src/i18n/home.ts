@@ -20,6 +20,7 @@ interface HomeStrings {
   caso: { eyebrow: string; taxiTag: string; taxiP: string; tmoTag: string; tmoP: string };
   chi: { eyebrow: string; text: string };
   contatti: { eyebrow: string; h2: string; p: string; cta: string };
+  email: { subject: string; body: string; ctaPreset: string; ctaFree: string };
   wa: Record<WaKey, string>;
 }
 
@@ -66,6 +67,12 @@ export const home: Record<HomeLang, HomeStrings> = {
       h2: 'Raccontami la tua idea',
       p: 'Scrivimi su WhatsApp e ti rispondo in giornata. Preferisci la mail? Va benissimo lo stesso.',
       cta: 'Scrivimi su WhatsApp',
+    },
+    email: {
+      subject: 'Richiesta preventivo sito web',
+      body: "Buondì Nico,\n\nho un'attività a ___ (nome attività: ___) e vorrei un preventivo per un sito web.\n\nCosa mi serve: ___\n\nGrazie,\n___",
+      ctaPreset: 'Scrivimi una mail (già impostata)',
+      ctaFree: 'oppure scrivimi liberamente a',
     },
     wa: {
       hero: "Buondì Nico! Ho un'attività a ___ e vorrei un preventivo per un sito web. Ti racconto cosa mi serve:",
@@ -117,6 +124,12 @@ export const home: Record<HomeLang, HomeStrings> = {
       h2: 'Tell me about your idea',
       p: "Message me on WhatsApp and I'll reply within the day. Prefer email? That's fine too.",
       cta: 'Message me on WhatsApp',
+    },
+    email: {
+      subject: 'Website quote request',
+      body: "Hi Nico,\n\nI run a business in ___ (business name: ___) and I'd like a quote for a website.\n\nWhat I need: ___\n\nThanks,\n___",
+      ctaPreset: 'Send me a pre-filled email',
+      ctaFree: 'or write to me directly at',
     },
     wa: {
       hero: "Hi Nico! I run a business in ___ and I'd like a quote for a website. Here's what I have in mind:",
