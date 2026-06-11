@@ -56,7 +56,7 @@ export const home: Record<HomeLang, HomeStrings> = {
       mediaAlt: 'Taxi Pontremoli — caso studio',
       taxiTag: 'Online',
       taxiP: 'Michele aveva bisogno di farsi trovare da turisti e clienti: oggi taxi-pontremoli.com porta richieste di corsa direttamente da Google.',
-      tmoTag: 'Progetto mio',
+      tmoTag: 'Progetto personale',
       tmoP: 'Trading Mind OS — piattaforma web completa che ho progettato e costruito da zero, dal design ai pagamenti.',
     },
     chi: {
@@ -115,7 +115,7 @@ export const home: Record<HomeLang, HomeStrings> = {
       mediaAlt: 'Taxi Pontremoli — case study',
       taxiTag: 'Online',
       taxiP: 'Michele needed tourists and clients to find him: today taxi-pontremoli.com brings ride requests straight from Google.',
-      tmoTag: 'My own product',
+      tmoTag: 'Personal project',
       tmoP: 'Trading Mind OS — a complete web platform I designed and built from scratch, from design to payments.',
     },
     chi: {
