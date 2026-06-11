@@ -63,7 +63,7 @@ export const home: Record<HomeLang, HomeStrings> = {
     chi: {
       eyebrow: 'Chi sono',
       photoAlt: 'Nicolò Cabrelli',
-      text: 'Sono Nicolò, sviluppatore web. Sono nato e vivo qui, in Lunigiana. Costruisco siti e prodotti web completi, con la stessa cura che metto nei miei progetti. Se sei in zona, il preventivo lo facciamo davanti a un caffè.',
+      text: "Sono Nicolò, sviluppatore web. Il tuo sito lo seguo, dal primo messaggio alla messa online — e se tra un anno serve una modifica, sai chi chiamare. Te lo cucio addosso come fa il sarto con l'abito: misure prese sulla tua attività, non un modello uguale per tutti. Vivo a Pontremoli e della Lunigiana conosco il traffico vero: le stagioni che riempiono la valle, i turisti che scelgono in trenta secondi, le attività che quei clienti li perdono perché online non si trovano. Lavoro con chiunque abbia un'attività — ristoranti, negozi, B&B, artigiani, studi — e un motivo per farsi trovare.",
     },
     contatti: {
       eyebrow: 'Contatti',
@@ -123,7 +123,7 @@ export const home: Record<HomeLang, HomeStrings> = {
     chi: {
       eyebrow: 'About',
       photoAlt: 'Nicolò Cabrelli',
-      text: "I'm Nicolò, a web developer, born and raised here in Lunigiana. I build complete websites and web products with the same care I put into my own. If you're nearby, we can go over your quote in person — over a coffee.",
+      text: "I'm Nicolò, a web developer. I look after your site from the first message to launch — and if you need a change a year from now, you know who to call. I cut it to fit the way a tailor cuts a suit: measured on your business, not one pattern for everyone. I live in Pontremoli and I know Lunigiana's real traffic: the seasons that fill the valley, the tourists choosing in thirty seconds, the businesses losing those customers because they can't be found online. I work with anyone who runs a business — restaurants, shops, B&Bs, artisans, studios — and a reason to be found.",
     },
     contatti: {
       eyebrow: 'Get in touch',
