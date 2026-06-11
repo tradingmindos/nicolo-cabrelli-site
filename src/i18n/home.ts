@@ -33,7 +33,7 @@ export const home: Record<HomeLang, HomeStrings> = {
       h1b: 'della Lunigiana',
       sub: 'Ristoranti, negozi, B&B e agriturismi di Pontremoli e dintorni: siti veloci, curati e facili da trovare su Google. Online in 14 giorni dal primo messaggio.',
       cta: 'Scrivimi su WhatsApp',
-      note: 'Progetti su misura, a partire da 1.200 €. Rispondo in giornata.',
+      note: 'Progetti su misura, a partire da 500 €. Rispondo in giornata.',
     },
     servizi: {
       eyebrow: 'Servizi',
@@ -93,7 +93,7 @@ export const home: Record<HomeLang, HomeStrings> = {
       h1b: 'in Lunigiana',
       sub: 'Restaurants, shops, B&Bs and farm stays in Pontremoli and the surrounding valleys: fast, carefully crafted websites people actually find on Google. Online in 14 days from your first message.',
       cta: 'Message me on WhatsApp',
-      note: 'Custom projects from €1,200. I reply within the day.',
+      note: 'Custom projects from €500. I reply within the day.',
     },
     servizi: {
       eyebrow: 'Services',
