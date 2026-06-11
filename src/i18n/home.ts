@@ -21,6 +21,7 @@ interface HomeStrings {
   chi: { eyebrow: string; photoAlt: string; text: string };
   contatti: { eyebrow: string; h2: string; p: string; cta: string };
   email: { subject: string; body: string; ctaPreset: string; ctaFree: string };
+  float: { label: string; aria: string };
   wa: Record<WaKey, string>;
 }
 
@@ -76,6 +77,7 @@ export const home: Record<HomeLang, HomeStrings> = {
       ctaPreset: 'Scrivimi una mail (già impostata)',
       ctaFree: 'oppure scrivimi liberamente a',
     },
+    float: { label: 'Scrivimi 👋', aria: 'Scrivimi su WhatsApp' },
     wa: {
       hero: "Buondì Nico! Ho un'attività a ___ e vorrei un preventivo per un sito web. Ti racconto cosa mi serve:",
       vetrina: 'Buondì Nico! Mi interessa il sito vetrina per la mia attività a ___. Mi dici come funziona?',
@@ -135,6 +137,7 @@ export const home: Record<HomeLang, HomeStrings> = {
       ctaPreset: 'Send me a pre-filled email',
       ctaFree: 'or write to me directly at',
     },
+    float: { label: 'Message me 👋', aria: 'Message me on WhatsApp' },
     wa: {
       hero: "Hi Nico! I run a business in ___ and I'd like a quote for a website. Here's what I have in mind:",
       vetrina: "Hi Nico! I'm interested in the showcase website for my business in ___. How does it work?",
