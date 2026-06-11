@@ -17,7 +17,7 @@ interface HomeStrings {
   hero: { h1a: string; h1b: string; sub: string; cta: string; note: string };
   servizi: { eyebrow: string; msgLink: string; cards: ServiceCard[] };
   come: { eyebrow: string; steps: { n: string; h: string; p: string }[] };
-  caso: { eyebrow: string; mediaAlt: string; taxiTag: string; taxiP: string; tmoTag: string; tmoP: string };
+  caso: { eyebrow: string; mediaAlt: string; taxiTag: string; taxiP: string; tmoTag: string; tmoP: string; quote?: string };
   chi: { eyebrow: string; photoAlt: string; text: string };
   contatti: { eyebrow: string; h2: string; p: string; cta: string };
   email: { subject: string; body: string; ctaPreset: string; ctaFree: string };

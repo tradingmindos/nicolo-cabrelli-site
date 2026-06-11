@@ -16,7 +16,7 @@ const t = home[lang];
         <span class="tag tag--live">{t.caso.taxiTag}</span>
       </div>
       <p>{t.caso.taxiP}</p>
-      <blockquote class="quote">[TESTIMONIANZA-MICHELE]</blockquote>
+      {t.caso.quote && <blockquote class="quote">{t.caso.quote}</blockquote>}
     </article>
 
     <article class="project reveal">
