@@ -17,7 +17,7 @@ interface HomeStrings {
   hero: { h1a: string; h1b: string; sub: string; cta: string; note: string };
   servizi: { eyebrow: string; msgLink: string; cards: ServiceCard[] };
   come: { eyebrow: string; steps: { n: string; h: string; p: string }[] };
-  caso: { eyebrow: string; mediaAlt: string; taxiTag: string; taxiP: string; tmoTag: string; tmoP: string; quote?: string };
+  caso: { eyebrow: string; mediaAlt: string; taxiTag: string; taxiP: string; tmoTag: string; tmoP: string; quote?: string; quoteBy?: string };
   chi: { eyebrow: string; photoAlt: string; text: string };
   contatti: { eyebrow: string; h2: string; p: string; cta: string };
   email: { subject: string; body: string; ctaPreset: string; ctaFree: string };
@@ -57,6 +57,8 @@ export const home: Record<HomeLang, HomeStrings> = {
       mediaAlt: 'Taxi Pontremoli — caso studio',
       taxiTag: 'Online',
       taxiP: 'Michele aveva bisogno di farsi trovare da turisti e clienti: oggi taxi-pontremoli.com porta richieste di corsa direttamente da Google.',
+      quote: 'Semplice, chiaro ed esaustivo. Nicolò ascolta le tue esigenze e, mettendosi nei panni del cliente, rende accessibile e trasparente il servizio. Ho già avuto riscontri positivi — e anche i miei clienti ne sono rimasti entusiasti.',
+      quoteBy: 'Michele · Taxi Pontremoli',
       tmoTag: 'Progetto personale',
       tmoP: 'Trading Mind OS — piattaforma web completa che ho progettato e costruito da zero, dal design ai pagamenti.',
     },
@@ -117,6 +119,8 @@ export const home: Record<HomeLang, HomeStrings> = {
       mediaAlt: 'Taxi Pontremoli — case study',
       taxiTag: 'Online',
       taxiP: 'Michele needed tourists and clients to find him: today taxi-pontremoli.com brings ride requests straight from Google.',
+      quote: "Simple, clear and thorough. Nicolò listens to what you need and, putting himself in the customer's shoes, makes the service accessible and transparent. I've already had positive feedback — and my own clients are delighted too.",
+      quoteBy: 'Michele · Taxi Pontremoli',
       tmoTag: 'Personal project',
       tmoP: 'Trading Mind OS — a complete web platform I designed and built from scratch, from design to payments.',
     },

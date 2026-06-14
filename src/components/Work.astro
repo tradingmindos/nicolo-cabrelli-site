@@ -16,7 +16,12 @@ const t = home[lang];
         <span class="tag tag--live">{t.caso.taxiTag}</span>
       </div>
       <p>{t.caso.taxiP}</p>
-      {t.caso.quote && <blockquote class="quote">{t.caso.quote}</blockquote>}
+      {t.caso.quote && (
+        <blockquote class="quote">
+          {t.caso.quote}
+          {t.caso.quoteBy && <cite>{t.caso.quoteBy}</cite>}
+        </blockquote>
+      )}
     </article>
 
     <article class="project reveal">

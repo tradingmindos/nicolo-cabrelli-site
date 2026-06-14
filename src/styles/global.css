@@ -274,6 +274,9 @@
     font-size:19px;line-height:1.5;color:var(--ink);max-width:60ch;
     border-left:2px solid var(--gold);padding-left:18px;margin-top:4px;
   }
+  .quote cite{
+    display:block;margin-top:10px;font-style:normal;font-size:14px;color:var(--muted);
+  }
 
   /* about */
   .about{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,4vw,48px);align-items:center;}
