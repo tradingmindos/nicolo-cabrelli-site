@@ -3,7 +3,7 @@
 
 export type HomeLang = 'it' | 'en';
 
-export type WaKey = 'hero' | 'vetrina' | 'completo' | 'gestione' | 'contatti';
+export type WaKey = 'hero' | 'vetrina' | 'completo' | 'prenotazioni' | 'gestione' | 'contatti';
 
 interface ServiceCard {
   k: string;
@@ -40,8 +40,9 @@ export const home: Record<HomeLang, HomeStrings> = {
       msgLink: 'Scrivimi per questo →',
       cards: [
         { k: '01', h: 'Sito vetrina', p: 'Per farti trovare: chi cerca la tua attività su Google trova foto, orari, contatti e la strada per arrivare da te.', wa: 'vetrina' },
-        { k: '02', h: 'Sito completo', p: 'Per lavorare di più: menu, prenotazioni, richieste di preventivo, versione in inglese per i turisti.', wa: 'completo' },
+        { k: '02', h: 'Sito completo', p: 'Per lavorare di più: menu, richieste di preventivo, versione in inglese per i turisti.', wa: 'completo' },
         { k: '03', h: 'Gestione continua', p: 'Ci penso io, ogni mese: aggiornamenti, modifiche, scheda Google sempre in ordine. Tu pensi al tuo lavoro, il sito lavora per te.', wa: 'gestione' },
+        { k: '04', h: 'Prenotazioni e piattaforme su misura', p: 'Per B&B, ristoranti e attività: un sistema di prenotazioni online integrato nel tuo sito, costruito su come lavori tu. Non solo una vetrina — uno strumento che lavora.', wa: 'prenotazioni' },
       ],
     },
     come: {
@@ -83,7 +84,8 @@ export const home: Record<HomeLang, HomeStrings> = {
     wa: {
       hero: "Buondì Nico! Ho un'attività a ___ e vorrei un preventivo per un sito web. Ti racconto cosa mi serve:",
       vetrina: 'Buondì Nico! Mi interessa il sito vetrina per la mia attività a ___. Mi dici come funziona?',
-      completo: 'Buondì Nico! Mi interessa il sito completo (menu/prenotazioni) per la mia attività a ___. Ne parliamo?',
+      completo: 'Buondì Nico! Mi interessa il sito completo (menu) per la mia attività a ___. Ne parliamo?',
+      prenotazioni: 'Buondì Nico! Mi interessa un sistema di prenotazioni su misura per la mia attività a ___. Ne parliamo?',
       gestione: 'Buondì Nico! Vorrei saperne di più sulla gestione mensile del sito. Cosa comprende?',
       contatti: 'Buondì Nico! Ho visto il tuo sito e vorrei parlarti del mio progetto:',
     },
@@ -102,8 +104,9 @@ export const home: Record<HomeLang, HomeStrings> = {
       msgLink: 'Message me about this →',
       cards: [
         { k: '01', h: 'Showcase website', p: 'Get found: when someone searches for your business on Google, they see photos, opening hours, contacts and directions.', wa: 'vetrina' },
-        { k: '02', h: 'Complete website', p: 'Get more work: menu, bookings, quote requests, in Italian and English.', wa: 'completo' },
+        { k: '02', h: 'Complete website', p: 'Get more work: menu, quote requests, in Italian and English.', wa: 'completo' },
         { k: '03', h: 'Ongoing care', p: 'I take care of it, every month: updates, edits, your Google profile always in order. You run your business, the site works for you.', wa: 'gestione' },
+        { k: '04', h: 'Bookings & custom platforms', p: 'For B&Bs, restaurants and local businesses: an online booking system built into your site, shaped around how you actually work. Not just a showcase — a tool that works.', wa: 'prenotazioni' },
       ],
     },
     come: {
@@ -145,7 +148,8 @@ export const home: Record<HomeLang, HomeStrings> = {
     wa: {
       hero: "Hi Nico! I run a business in ___ and I'd like a quote for a website. Here's what I have in mind:",
       vetrina: "Hi Nico! I'm interested in the showcase website for my business in ___. How does it work?",
-      completo: "Hi Nico! I'm interested in the complete website (menu/bookings) for my business in ___. Can we talk?",
+      completo: "Hi Nico! I'm interested in the complete website (menu) for my business in ___. Can we talk?",
+      prenotazioni: "Hi Nico! I'm interested in a custom booking system for my business in ___. Can we talk?",
       gestione: "Hi Nico! I'd like to know more about the monthly site care. What does it include?",
       contatti: "Hi Nico! I saw your website and I'd like to tell you about my project:",
     },
