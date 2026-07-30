@@ -1,52 +1,223 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import TopBar from '../components/TopBar.astro';
-import Hero from '../components/Hero.astro';
-import Servizi from '../components/WhatIDo.astro';
-import ComeFunziona from '../components/ComeFunziona.astro';
-import CasoStudio from '../components/Work.astro';
-import ChiSono from '../components/ChiSono.astro';
-import Contatti from '../components/Contact.astro';
-import Footer from '../components/Footer.astro';
-import WhatsAppFloat from '../components/WhatsAppFloat.astro';
-import { SITE_URL, LINKEDIN, GITHUB, WHATSAPP_NUMBER, HOME_ALTERNATES } from '../lib/site';
+import LayoutRedesign from '../layouts/LayoutRedesign.astro';
+import { SITE_URL, LINKEDIN, GITHUB } from '../lib/site';
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  name: 'Nicolò Cabrelli — Siti web',
-  description:
-    'Realizzo siti web per ristoranti, negozi, B&B e agriturismi a Pontremoli e in Lunigiana.',
+  '@type': 'Person',
+  name: 'Nicolò Cabrelli',
+  jobTitle: 'Full-stack developer',
   url: SITE_URL,
-  areaServed: [
-    { '@type': 'City', name: 'Pontremoli' },
-    { '@type': 'AdministrativeArea', name: 'Lunigiana' },
-  ],
+  sameAs: [GITHUB, LINKEDIN],
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Pontremoli',
-    addressRegion: 'MS',
+    addressRegion: 'Toscana',
     addressCountry: 'IT',
   },
-  priceRange: '€€',
-  telephone: WHATSAPP_NUMBER,
-  sameAs: [LINKEDIN, GITHUB],
 };
 ---
-<Layout
+<LayoutRedesign
   lang="it"
-  title="Siti web per attività in Lunigiana | Nicolò Cabrelli — Pontremoli"
-  description="Realizzo siti web per ristoranti, negozi, B&B e agriturismi a Pontremoli e in Lunigiana. Online in 14 giorni. Preventivo su richiesta. Scrivimi su WhatsApp."
+  title="Nicolò Cabrelli — Full-stack developer · Solo founder"
+  description="Progetto, costruisco e metto in produzione prodotti web completi — dal database all'interfaccia. Due SaaS live, costruiti da solo. Disponibile per progetti e ruoli remote."
+  ogDescription="Prodotti web completi, dal database all'interfaccia. Due SaaS live, costruiti da solo."
   jsonLd={jsonLd}
-  alternates={HOME_ALTERNATES}
+  alternates={[
+    { hreflang: 'en', href: `${SITE_URL}/en/` },
+    { hreflang: 'it', href: `${SITE_URL}/` },
+  ]}
 >
-  <TopBar lang="it" />
-  <Hero lang="it" />
-  <Servizi lang="it" />
-  <ComeFunziona lang="it" />
-  <CasoStudio lang="it" />
-  <ChiSono lang="it" />
-  <Contatti lang="it" />
-  <Footer lang="it" />
-  <WhatsAppFloat lang="it" />
-</Layout>
+<header class="top">
+  <div class="wrap top-inner">
+    <a class="logo" href="/"><b>nc</b>.cabrelli</a>
+    <nav class="main" aria-label="Navigazione principale">
+      <a href="#progetti">progetti</a>
+      <a href="#metodo" class="hide-m">metodo</a>
+      <a href="#profilo" class="hide-m">profilo</a>
+      <a href="#contatti">contatti</a>
+      <a class="lang" href="/en/" hreflang="en" aria-label="Switch to English"><b>it</b> / en</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="hero">
+  <div class="wrap">
+    <p class="eyebrow">pontremoli, it · disponibile per progetti remote</p>
+    <h1>Costruisco prodotti web <em>completi</em>. Da&nbsp;solo.</h1>
+    <p class="sub">Sono Nicolò Cabrelli, full-stack developer autodidatta e solo founder. Progetto il sistema, scrivo il codice, lo metto in produzione e lo mantengo — dal database all'interfaccia, dal primo commit al dominio live.</p>
+    <div class="cta-row">
+      <a class="btn btn-solid" href="mailto:nicolocabrelli@pm.me">Scrivimi</a>
+      <a class="btn btn-ghost" href="https://github.com/tradingmindos" rel="noopener">GitHub ↗</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/nicolocabrelli-tradingmindos" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <div class="hero-facts">
+      <span><b>2</b> SaaS in produzione</span>
+      <span><b>end-to-end</b> — design → deploy</span>
+      <span><b>it / en</b></span>
+    </div>
+  </div>
+</div>
+
+<section id="progetti">
+  <div class="wrap">
+    <p class="sec-label"><b>progetti</b> selezionati</p>
+
+    <article class="dossier fade">
+      <aside class="d-meta">
+        <span class="status">in produzione</span>
+        <dl>
+          <div><dt>ruolo</dt><dd>tutto — design, codice, infra</dd></div>
+          <div><dt>tipo</dt><dd>SaaS · trading psychology</dd></div>
+          <div><dt>dominio</dt><dd><a href="https://tradingmindos.com" rel="noopener">tradingmindos.com ↗</a></dd></div>
+        </dl>
+      </aside>
+      <div class="d-body">
+        <h3><a href="https://tradingmindos.com" rel="noopener">Trading Mind OS <span class="ext">↗</span></a></h3>
+        <p class="lead">Una piattaforma che aiuta i trader a gestire la parte più difficile del trading: la propria testa. Progettata e costruita da zero, da una persona sola.</p>
+        <div class="schematic">
+          <svg viewBox="0 0 680 150" role="img" aria-label="Architettura di Trading Mind OS" class="reveal">
+            <path class="wire" d="M150 45 H 210"/>
+            <path class="wire" d="M370 45 H 430"/>
+            <path class="wire hot" d="M290 68 V 118 H 430"/>
+            <path class="wire" d="M150 118 H 210 M 330 118 H 400 V 45 H 430"/>
+            <g class="node hot"><rect x="30" y="22" width="120" height="46" rx="4"/><text x="90" y="42" text-anchor="middle">React SPA</text><text x="90" y="58" text-anchor="middle" class="tag">dashboard a widget</text></g>
+            <g class="node"><rect x="210" y="22" width="160" height="46" rx="4"/><text x="290" y="42" text-anchor="middle">Supabase RPC</text><text x="290" y="58" text-anchor="middle" class="tag">trial lato server</text></g>
+            <g class="node hot"><rect x="430" y="22" width="220" height="46" rx="4"/><text x="540" y="42" text-anchor="middle">PostgreSQL + RLS</text><text x="540" y="58" text-anchor="middle" class="tag">row-level security per utente</text></g>
+            <g class="node"><rect x="30" y="95" width="120" height="46" rx="4"/><text x="90" y="115" text-anchor="middle">MetaTrader 5</text><text x="90" y="131" text-anchor="middle" class="tag">EA custom</text></g>
+            <g class="node"><rect x="210" y="95" width="120" height="46" rx="4"/><text x="270" y="115" text-anchor="middle">Bridge</text><text x="270" y="131" text-anchor="middle" class="tag">sync trade live</text></g>
+            <g class="node"><rect x="430" y="95" width="220" height="46" rx="4"/><text x="540" y="115" text-anchor="middle">Anthropic API</text><text x="540" y="131" text-anchor="middle" class="tag">coach AI, lato server</text></g>
+          </svg>
+        </div>
+        <div class="decisions">
+          <div><span><b>Sicurezza enforced dal server</b>, non dal client: trial e permessi vivono in Postgres via RPC, con row-level security su ogni tabella.</span></div>
+          <div><span><b>Un bridge MetaTrader 5 scritto su misura</b> sincronizza i trade reali dentro la piattaforma — niente inserimento manuale.</span></div>
+          <div><span><b>Multi-valuta</b> (USD / EUR / GBP) e dashboard configurabile con persistenza del layout per utente.</span></div>
+        </div>
+        <div class="stack-tags">
+          <span>react</span><span>vite</span><span>supabase</span><span>postgresql</span><span>cloudflare</span><span>anthropic api</span><span>metatrader 5</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="dossier fade">
+      <aside class="d-meta">
+        <span class="status">in produzione</span>
+        <dl>
+          <div><dt>ruolo</dt><dd>tutto — piattaforma e contenuti</dd></div>
+          <div><dt>tipo</dt><dd>piattaforma di formazione</dd></div>
+          <div><dt>dominio</dt><dd><a href="https://app.soravent.com" rel="noopener">app.soravent.com ↗</a></dd></div>
+        </dl>
+      </aside>
+      <div class="d-body">
+        <h3><a href="https://app.soravent.com" rel="noopener">SORAVENT <span class="ext">↗</span></a></h3>
+        <p class="lead">Piattaforma premium di formazione sul trading, in italiano. Dall'idea alla versione pronta al lancio in una settimana di lavoro: autenticazione, moduli di contenuto, stato di lettura, diario strutturato, generazione PDF, flusso di abbonamento.</p>
+        <div class="schematic">
+          <svg viewBox="0 0 680 73" role="img" aria-label="Architettura di SORAVENT" class="reveal">
+            <path class="wire" d="M150 45 H 190"/>
+            <path class="wire" d="M330 45 H 370"/>
+            <path class="wire hot" d="M510 45 H 550"/>
+            <g class="node"><rect x="30" y="22" width="120" height="46" rx="4"/><text x="90" y="42" text-anchor="middle">Auth</text><text x="90" y="58" text-anchor="middle" class="tag">accesso a slot numerati</text></g>
+            <g class="node hot"><rect x="190" y="22" width="140" height="46" rx="4"/><text x="260" y="42" text-anchor="middle">Moduli contenuto</text><text x="260" y="58" text-anchor="middle" class="tag">research + mind</text></g>
+            <g class="node"><rect x="370" y="22" width="140" height="46" rx="4"/><text x="440" y="42" text-anchor="middle">Diario</text><text x="440" y="58" text-anchor="middle" class="tag">stato + progressi</text></g>
+            <g class="node hot"><rect x="550" y="22" width="100" height="46" rx="4"/><text x="600" y="42" text-anchor="middle">PDF engine</text><text x="600" y="58" text-anchor="middle" class="tag">export</text></g>
+          </svg>
+        </div>
+        <div class="decisions">
+          <div><span><b>Prodotto completo, non un corso su Notion</b>: reading state, passaporto utente, offerta fondativa a 50 posti numerati.</span></div>
+          <div><span><b>Velocità come dimostrazione</b>: piattaforma costruita da zero a pronta al lancio in giorni, non mesi.</span></div>
+        </div>
+        <div class="stack-tags">
+          <span>react</span><span>supabase</span><span>postgresql</span><span>cloudflare</span><span>pdf generation</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="dossier fade">
+      <aside class="d-meta">
+        <span class="status">in produzione</span>
+        <dl>
+          <div><dt>ruolo</dt><dd>sviluppo, SEO, consegna</dd></div>
+          <div><dt>tipo</dt><dd>lavoro cliente</dd></div>
+          <div><dt>dominio</dt><dd><a href="https://taxi-pontremoli.com" rel="noopener">taxi-pontremoli.com ↗</a></dd></div>
+        </dl>
+      </aside>
+      <div class="d-body">
+        <h3><a href="https://taxi-pontremoli.com" rel="noopener">Taxi Pontremoli <span class="ext">↗</span></a></h3>
+        <p class="lead">Sito di produzione per un'attività locale, consegnato end-to-end: veloce, ottimizzato per Google, deployato su edge. Oggi porta richieste di corsa direttamente dalla ricerca.</p>
+        <div class="decisions">
+          <div><span><b>SEO tecnica + Google Business Profile</b>: il sito non esiste per esistere, esiste per farsi trovare.</span></div>
+          <div><span>«Semplice, chiaro ed esaustivo. Ho già avuto riscontri positivi — e anche i miei clienti ne sono rimasti entusiasti.» — <b>Michele, titolare</b></span></div>
+        </div>
+        <div class="stack-tags">
+          <span>astro</span><span>tailwind</span><span>cloudflare pages</span><span>technical seo</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="metodo">
+  <div class="wrap">
+    <p class="sec-label"><b>metodo</b> — come lavoro</p>
+    <div class="method fade">
+      <article>
+        <h4>Prodotto <span>design → ship</span></h4>
+        <p>Parto dal problema, non dallo stack. Disegno il sistema, definisco lo scope minimo che genera valore, e lo porto online. Un prodotto in produzione batte dieci prototipi.</p>
+        <p class="tools">figma-free design in codice · iterazione su utenti reali</p>
+      </article>
+      <article>
+        <h4>Ingegneria <span>frontend + backend</span></h4>
+        <p>React e Astro sull'interfaccia, Postgres e Supabase sui dati, con row-level security e logica enforced dal server. Integro API esterne quando servono — AI incluse.</p>
+        <p class="tools">react · vite · astro · supabase · postgresql · node · rest api · anthropic api</p>
+      </article>
+      <article>
+        <h4>Operazioni <span>deploy → mantieni</span></h4>
+        <p>Deploy su Cloudflare, DNS, sicurezza, analytics, SEO tecnica. Il lancio non è la fine: verifico in produzione, misuro, correggo.</p>
+        <p class="tools">cloudflare pages · git · 2fa ovunque · web analytics</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="profilo">
+  <div class="wrap">
+    <p class="sec-label"><b>profilo</b></p>
+    <div class="profile fade">
+      <div class="txt">
+        <p><b>Autodidatta per necessità, sistematico per scelta.</b> Ho imparato a programmare costruendo prodotti veri, con utenti veri e problemi veri — non seguendo tutorial. Ogni progetto in questa pagina è passato dalle mie mani in ogni sua parte: schema del database, interfaccia, sicurezza, deploy, dominio.</p>
+        <p>Vivo a Pontremoli, in Lunigiana, e lavoro in remoto. Il posto mi ha insegnato una cosa che porto nel codice: le cose fatte bene durano, e chi le fa risponde di persona. Se tra un anno serve una modifica, sai chi chiamare.</p>
+        <p>Sono aperto a <b>progetti freelance e ruoli full-stack remote</b>.</p>
+      </div>
+      <figure>
+        <img src="/nico.webp" alt="Nicolò Cabrelli" width="680" height="850" loading="lazy">
+        <figcaption>pontremoli, lunigiana — 44.37° n, 9.88° e</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="contatti" class="contact">
+  <div class="wrap fade">
+    <p class="sec-label"><b>contatti</b></p>
+    <h2>Hai un sistema da costruire? <em>Parliamone.</em></h2>
+    <a class="mail" href="mailto:nicolocabrelli@pm.me">nicolocabrelli@pm.me</a>
+    <div class="links">
+      <a href="https://github.com/tradingmindos" rel="noopener">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/nicolocabrelli-tradingmindos" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Nicolò Cabrelli · C.F. 90021180451</span>
+    <a href="/lunigiana">Siti web per attività della Lunigiana →</a>
+  </div>
+</footer>
+</LayoutRedesign>

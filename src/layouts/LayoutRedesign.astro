@@ -1,0 +1,56 @@
+---
+// Layout for the 2026 redesign (homepage / + /en/). Head mirrors the static
+// HTML of the redesign; body markup is passed through untouched via <slot />.
+// Styles live ONLY in redesign.css (global import, no scoped <style>).
+import '../styles/redesign.css';
+
+interface Props {
+  lang?: string;
+  title: string;
+  description: string;
+  ogDescription: string;
+  jsonLd: Record<string, unknown>;
+  alternates?: { hreflang: string; href: string }[];
+}
+
+const { lang = 'it', title, description, ogDescription, jsonLd, alternates } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL('/og.png', Astro.site);
+const ogLocale = lang === 'it' ? 'it_IT' : 'en_US';
+
+const fontsHref =
+  'https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap';
+---
+<!DOCTYPE html>
+<html lang={lang}>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
+{alternates?.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={ogDescription} />
+<meta property="og:image" content={ogImageURL} />
+<meta property="og:locale" content={ogLocale} />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href={fontsHref} rel="stylesheet" />
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+</head>
+<body>
+
+<slot />
+
+<script is:inline>
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.18});
+document.querySelectorAll('.fade,.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TopBar from '../components/TopBar.astro';
+import Hero from '../components/Hero.astro';
+import Servizi from '../components/WhatIDo.astro';
+import ComeFunziona from '../components/ComeFunziona.astro';
+import CasoStudio from '../components/Work.astro';
+import ChiSono from '../components/ChiSono.astro';
+import Contatti from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import { SITE_URL, LINKEDIN, GITHUB, WHATSAPP_NUMBER, LUNIGIANA_ALTERNATES } from '../lib/site';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Nicolò Cabrelli — Siti web',
+  description:
+    'Realizzo siti web per ristoranti, negozi, B&B e agriturismi a Pontremoli e in Lunigiana.',
+  url: `${SITE_URL}/lunigiana/`,
+  areaServed: [
+    { '@type': 'City', name: 'Pontremoli' },
+    { '@type': 'AdministrativeArea', name: 'Lunigiana' },
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Pontremoli',
+    addressRegion: 'MS',
+    addressCountry: 'IT',
+  },
+  priceRange: '€€',
+  telephone: WHATSAPP_NUMBER,
+  sameAs: [LINKEDIN, GITHUB],
+};
+---
+<Layout
+  lang="it"
+  title="Siti web per attività in Lunigiana | Nicolò Cabrelli — Pontremoli"
+  description="Realizzo siti web per ristoranti, negozi, B&B e agriturismi a Pontremoli e in Lunigiana. Online in 14 giorni. Preventivo su richiesta. Scrivimi su WhatsApp."
+  jsonLd={jsonLd}
+  alternates={LUNIGIANA_ALTERNATES}
+>
+  <TopBar lang="it" />
+  <Hero lang="it" />
+  <Servizi lang="it" />
+  <ComeFunziona lang="it" />
+  <CasoStudio lang="it" />
+  <ChiSono lang="it" />
+  <Contatti lang="it" />
+  <Footer lang="it" />
+  <WhatsAppFloat lang="it" />
+</Layout>

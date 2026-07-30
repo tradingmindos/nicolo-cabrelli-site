@@ -1,7 +1,7 @@
 ---
 // Sticky top bar: monogram + discreet cross-link + theme toggle.
-// Homepage mode (lang given, no nav* override) reads the /pro link from the
-// dictionary. Other pages (e.g. /pro) pass an explicit navLabel/navHref.
+// Default mode (lang given, no nav* override) reads the home cross-link from
+// the dictionary. Other pages can pass an explicit navLabel/navHref.
 import { home, type HomeLang } from '../i18n/home';
 
 interface Props {
@@ -12,11 +12,12 @@ interface Props {
 const { lang = 'it', navLabel, navHref } = Astro.props;
 const t = home[lang];
 
-// Homepage mode (no explicit nav override) shows the language switch.
+// Default mode (no explicit nav override) shows the language switch.
 const isHome = navLabel === undefined && navHref === undefined;
 const linkLabel = navLabel ?? t.topbar.pro;
-const linkHref = navHref ?? '/pro';
-const langSwitch = lang === 'it' ? { label: 'EN', href: '/en/' } : { label: 'IT', href: '/' };
+const linkHref = navHref ?? (lang === 'it' ? '/' : '/en/');
+const langSwitch =
+  lang === 'it' ? { label: 'EN', href: '/en/lunigiana/' } : { label: 'IT', href: '/lunigiana/' };
 const langSwitchAria = lang === 'it' ? 'English version' : 'Versione in italiano';
 ---
 <div class="topbar">

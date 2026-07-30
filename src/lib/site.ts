@@ -10,7 +10,7 @@ export function waHref(text: string) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 }
 
-export const EMAIL = 'nicocabrelli@gmail.com';
+export const EMAIL = 'nicolocabrelli@pm.me';
 
 // Build a mailto link with a prefilled, URL-encoded subject and body.
 export function mailtoHref(subject: string, body: string) {
@@ -21,9 +21,9 @@ export const GITHUB = 'https://github.com/tradingmindos';
 
 export const VAT = '90021180451';
 
-// hreflang alternates for the homepage (IT is the default, EN lives at /en/).
-export const HOME_ALTERNATES = [
-  { hreflang: 'it', href: `${SITE_URL}/` },
-  { hreflang: 'en', href: `${SITE_URL}/en/` },
-  { hreflang: 'x-default', href: `${SITE_URL}/` },
+// hreflang alternates for the Lunigiana pages (IT is the default, EN lives at /en/lunigiana/).
+export const LUNIGIANA_ALTERNATES = [
+  { hreflang: 'it', href: `${SITE_URL}/lunigiana/` },
+  { hreflang: 'en', href: `${SITE_URL}/en/lunigiana/` },
+  { hreflang: 'x-default', href: `${SITE_URL}/lunigiana/` },
 ];

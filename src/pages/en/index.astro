@@ -1,52 +1,223 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import TopBar from '../../components/TopBar.astro';
-import Hero from '../../components/Hero.astro';
-import Servizi from '../../components/WhatIDo.astro';
-import ComeFunziona from '../../components/ComeFunziona.astro';
-import CasoStudio from '../../components/Work.astro';
-import ChiSono from '../../components/ChiSono.astro';
-import Contatti from '../../components/Contact.astro';
-import Footer from '../../components/Footer.astro';
-import WhatsAppFloat from '../../components/WhatsAppFloat.astro';
-import { SITE_URL, LINKEDIN, GITHUB, WHATSAPP_NUMBER, HOME_ALTERNATES } from '../../lib/site';
+import LayoutRedesign from '../../layouts/LayoutRedesign.astro';
+import { SITE_URL, LINKEDIN, GITHUB } from '../../lib/site';
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  name: 'Nicolò Cabrelli — Websites',
-  description:
-    'I build websites for restaurants, shops, B&Bs and farm stays in Pontremoli and Lunigiana.',
-  url: `${SITE_URL}/en/`,
-  areaServed: [
-    { '@type': 'City', name: 'Pontremoli' },
-    { '@type': 'AdministrativeArea', name: 'Lunigiana' },
-  ],
+  '@type': 'Person',
+  name: 'Nicolò Cabrelli',
+  jobTitle: 'Full-stack developer',
+  url: SITE_URL,
+  sameAs: [GITHUB, LINKEDIN],
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Pontremoli',
-    addressRegion: 'MS',
+    addressRegion: 'Tuscany',
     addressCountry: 'IT',
   },
-  priceRange: '€€',
-  telephone: WHATSAPP_NUMBER,
-  sameAs: [LINKEDIN, GITHUB],
 };
 ---
-<Layout
+<LayoutRedesign
   lang="en"
-  title="Websites for businesses in Lunigiana | Nicolò Cabrelli — Pontremoli"
-  description="I build websites for restaurants, shops, B&Bs and farm stays in Pontremoli and Lunigiana. Online in 14 days. Quote on request. Message me on WhatsApp."
+  title="Nicolò Cabrelli — Full-stack developer · Solo founder"
+  description="I design, build and ship complete web products — from database to interface. Two SaaS platforms live, built solo. Available for freelance projects and remote roles."
+  ogDescription="Complete web products, from database to interface. Two SaaS platforms live, built solo."
   jsonLd={jsonLd}
-  alternates={HOME_ALTERNATES}
+  alternates={[
+    { hreflang: 'it', href: `${SITE_URL}/` },
+    { hreflang: 'en', href: `${SITE_URL}/en/` },
+  ]}
 >
-  <TopBar lang="en" />
-  <Hero lang="en" />
-  <Servizi lang="en" />
-  <ComeFunziona lang="en" />
-  <CasoStudio lang="en" />
-  <ChiSono lang="en" />
-  <Contatti lang="en" />
-  <Footer lang="en" />
-  <WhatsAppFloat lang="en" />
-</Layout>
+<header class="top">
+  <div class="wrap top-inner">
+    <a class="logo" href="/en/"><b>nc</b>.cabrelli</a>
+    <nav class="main" aria-label="Main navigation">
+      <a href="#work">work</a>
+      <a href="#method" class="hide-m">method</a>
+      <a href="#profile" class="hide-m">profile</a>
+      <a href="#contact">contact</a>
+      <a class="lang" href="/" hreflang="it" aria-label="Passa all'italiano">it / <b>en</b></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="hero">
+  <div class="wrap">
+    <p class="eyebrow">pontremoli, italy · available for remote work</p>
+    <h1>I build <em>complete</em> web products. Solo.</h1>
+    <p class="sub">I'm Nicolò Cabrelli, a self-taught full-stack developer and solo founder. I design the system, write the code, ship it to production and keep it running — from database to interface, from first commit to live domain.</p>
+    <div class="cta-row">
+      <a class="btn btn-solid" href="mailto:nicolocabrelli@pm.me">Email me</a>
+      <a class="btn btn-ghost" href="https://github.com/tradingmindos" rel="noopener">GitHub ↗</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/nicolocabrelli-tradingmindos" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <div class="hero-facts">
+      <span><b>2</b> SaaS platforms in production</span>
+      <span><b>end-to-end</b> — design → deploy</span>
+      <span><b>it / en</b></span>
+    </div>
+  </div>
+</div>
+
+<section id="work">
+  <div class="wrap">
+    <p class="sec-label"><b>selected</b> work</p>
+
+    <article class="dossier fade">
+      <aside class="d-meta">
+        <span class="status">live</span>
+        <dl>
+          <div><dt>role</dt><dd>everything — design, code, infra</dd></div>
+          <div><dt>type</dt><dd>SaaS · trading psychology</dd></div>
+          <div><dt>domain</dt><dd><a href="https://tradingmindos.com" rel="noopener">tradingmindos.com ↗</a></dd></div>
+        </dl>
+      </aside>
+      <div class="d-body">
+        <h3><a href="https://tradingmindos.com" rel="noopener">Trading Mind OS <span class="ext">↗</span></a></h3>
+        <p class="lead">A platform that helps traders manage the hardest part of trading: their own mind. Designed and built from scratch, by one person.</p>
+        <div class="schematic">
+          <svg viewBox="0 0 680 150" role="img" aria-label="Trading Mind OS architecture" class="reveal">
+            <path class="wire" d="M150 45 H 210"/>
+            <path class="wire" d="M370 45 H 430"/>
+            <path class="wire hot" d="M290 68 V 118 H 430"/>
+            <path class="wire" d="M150 118 H 210 M 330 118 H 400 V 45 H 430"/>
+            <g class="node hot"><rect x="30" y="22" width="120" height="46" rx="4"/><text x="90" y="42" text-anchor="middle">React SPA</text><text x="90" y="58" text-anchor="middle" class="tag">widget dashboard</text></g>
+            <g class="node"><rect x="210" y="22" width="160" height="46" rx="4"/><text x="290" y="42" text-anchor="middle">Supabase RPC</text><text x="290" y="58" text-anchor="middle" class="tag">server-enforced trial</text></g>
+            <g class="node hot"><rect x="430" y="22" width="220" height="46" rx="4"/><text x="540" y="42" text-anchor="middle">PostgreSQL + RLS</text><text x="540" y="58" text-anchor="middle" class="tag">row-level security per user</text></g>
+            <g class="node"><rect x="30" y="95" width="120" height="46" rx="4"/><text x="90" y="115" text-anchor="middle">MetaTrader 5</text><text x="90" y="131" text-anchor="middle" class="tag">custom EA</text></g>
+            <g class="node"><rect x="210" y="95" width="120" height="46" rx="4"/><text x="270" y="115" text-anchor="middle">Bridge</text><text x="270" y="131" text-anchor="middle" class="tag">live trade sync</text></g>
+            <g class="node"><rect x="430" y="95" width="220" height="46" rx="4"/><text x="540" y="115" text-anchor="middle">Anthropic API</text><text x="540" y="131" text-anchor="middle" class="tag">AI coach, server-side</text></g>
+          </svg>
+        </div>
+        <div class="decisions">
+          <div><span><b>Security enforced server-side</b>, not in the client: trials and permissions live in Postgres via RPC, with row-level security on every table.</span></div>
+          <div><span><b>A custom MetaTrader 5 bridge</b> syncs real trades into the platform — no manual entry.</span></div>
+          <div><span><b>Multi-currency</b> (USD / EUR / GBP) and a configurable dashboard with per-user layout persistence.</span></div>
+        </div>
+        <div class="stack-tags">
+          <span>react</span><span>vite</span><span>supabase</span><span>postgresql</span><span>cloudflare</span><span>anthropic api</span><span>metatrader 5</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="dossier fade">
+      <aside class="d-meta">
+        <span class="status">live</span>
+        <dl>
+          <div><dt>role</dt><dd>everything — platform and content</dd></div>
+          <div><dt>type</dt><dd>education platform</dd></div>
+          <div><dt>domain</dt><dd><a href="https://app.soravent.com" rel="noopener">app.soravent.com ↗</a></dd></div>
+        </dl>
+      </aside>
+      <div class="d-body">
+        <h3><a href="https://app.soravent.com" rel="noopener">SORAVENT <span class="ext">↗</span></a></h3>
+        <p class="lead">A premium Italian-language trading education platform. From idea to launch-ready in one week of work: authentication, content modules, reading state, a structured journal, PDF generation, and a subscription flow.</p>
+        <div class="schematic">
+          <svg viewBox="0 0 680 73" role="img" aria-label="SORAVENT architecture" class="reveal">
+            <path class="wire" d="M150 45 H 190"/>
+            <path class="wire" d="M330 45 H 370"/>
+            <path class="wire hot" d="M510 45 H 550"/>
+            <g class="node"><rect x="30" y="22" width="120" height="46" rx="4"/><text x="90" y="42" text-anchor="middle">Auth</text><text x="90" y="58" text-anchor="middle" class="tag">numbered-slot access</text></g>
+            <g class="node hot"><rect x="190" y="22" width="140" height="46" rx="4"/><text x="260" y="42" text-anchor="middle">Content modules</text><text x="260" y="58" text-anchor="middle" class="tag">research + mind</text></g>
+            <g class="node"><rect x="370" y="22" width="140" height="46" rx="4"/><text x="440" y="42" text-anchor="middle">Journal</text><text x="440" y="58" text-anchor="middle" class="tag">state + progress</text></g>
+            <g class="node hot"><rect x="550" y="22" width="100" height="46" rx="4"/><text x="600" y="42" text-anchor="middle">PDF engine</text><text x="600" y="58" text-anchor="middle" class="tag">export</text></g>
+          </svg>
+        </div>
+        <div class="decisions">
+          <div><span><b>A complete product, not a course on Notion</b>: reading state, a user passport, a founding offer with 50 numbered slots.</span></div>
+          <div><span><b>Speed as proof</b>: built from scratch to launch-ready in days, not months.</span></div>
+        </div>
+        <div class="stack-tags">
+          <span>react</span><span>supabase</span><span>postgresql</span><span>cloudflare</span><span>pdf generation</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="dossier fade">
+      <aside class="d-meta">
+        <span class="status">live</span>
+        <dl>
+          <div><dt>role</dt><dd>development, SEO, delivery</dd></div>
+          <div><dt>type</dt><dd>client work</dd></div>
+          <div><dt>domain</dt><dd><a href="https://taxi-pontremoli.com" rel="noopener">taxi-pontremoli.com ↗</a></dd></div>
+        </dl>
+      </aside>
+      <div class="d-body">
+        <h3><a href="https://taxi-pontremoli.com" rel="noopener">Taxi Pontremoli <span class="ext">↗</span></a></h3>
+        <p class="lead">A production website for a local business, delivered end-to-end: fast, optimized for Google, deployed on the edge. Today it brings ride requests straight from search.</p>
+        <div class="decisions">
+          <div><span><b>Technical SEO + Google Business Profile</b>: the site doesn't exist to exist — it exists to be found.</span></div>
+          <div><span>"Simple, clear and thorough. I've already seen results — and my customers love it too." — <b>Michele, owner</b></span></div>
+        </div>
+        <div class="stack-tags">
+          <span>astro</span><span>tailwind</span><span>cloudflare pages</span><span>technical seo</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="method">
+  <div class="wrap">
+    <p class="sec-label"><b>method</b> — how I work</p>
+    <div class="method fade">
+      <article>
+        <h4>Product <span>design → ship</span></h4>
+        <p>I start from the problem, not the stack. I design the system, define the smallest scope that creates value, and put it online. One product in production beats ten prototypes.</p>
+        <p class="tools">design in code · iteration on real users</p>
+      </article>
+      <article>
+        <h4>Engineering <span>frontend + backend</span></h4>
+        <p>React and Astro on the interface, Postgres and Supabase on the data, with row-level security and server-enforced logic. I integrate external APIs where they earn their place — AI included.</p>
+        <p class="tools">react · vite · astro · supabase · postgresql · node · rest api · anthropic api</p>
+      </article>
+      <article>
+        <h4>Operations <span>deploy → maintain</span></h4>
+        <p>Cloudflare deploys, DNS, security, analytics, technical SEO. Launch isn't the finish line: I verify in production, measure, and fix.</p>
+        <p class="tools">cloudflare pages · git · 2fa everywhere · web analytics</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="profile">
+  <div class="wrap">
+    <p class="sec-label"><b>profile</b></p>
+    <div class="profile fade">
+      <div class="txt">
+        <p><b>Self-taught by necessity, systematic by choice.</b> I learned to code by building real products, with real users and real problems — not by following tutorials. Every project on this page went through my hands in every part: database schema, interface, security, deploy, domain.</p>
+        <p>I live in Pontremoli, in Lunigiana, Tuscany, and I work remotely. This place taught me something I carry into code: things built well last, and the person who built them answers for them. If you need a change a year from now, you know who to call.</p>
+        <p>I'm open to <b>freelance projects and remote full-stack roles</b>.</p>
+      </div>
+      <figure>
+        <img src="/nico.webp" alt="Nicolò Cabrelli" width="680" height="850" loading="lazy">
+        <figcaption>pontremoli, lunigiana — 44.37° n, 9.88° e</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap fade">
+    <p class="sec-label"><b>contact</b></p>
+    <h2>Have a system to build? <em>Let's talk.</em></h2>
+    <a class="mail" href="mailto:nicolocabrelli@pm.me">nicolocabrelli@pm.me</a>
+    <div class="links">
+      <a href="https://github.com/tradingmindos" rel="noopener">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/nicolocabrelli-tradingmindos" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Nicolò Cabrelli · C.F. 90021180451</span>
+    <a href="/lunigiana">Websites for local businesses in Lunigiana →</a>
+  </div>
+</footer>
+</LayoutRedesign>
