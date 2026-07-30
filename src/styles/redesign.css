@@ -212,8 +212,9 @@ section{padding:88px 0;border-bottom:1px solid var(--line)}
 .profile .txt p{color:var(--soft);max-width:58ch}
 .profile .txt p+p{margin-top:18px}
 .profile .txt b{color:var(--ink);font-weight:500}
-.profile figure img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 20%;border-radius:6px;border:1px solid var(--line);filter:saturate(.9)}
-.profile figcaption{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:10px}
+.profile figure{display:flex;flex-direction:column;align-items:center}
+.profile figure img{width:240px;height:240px;border-radius:50%;object-fit:cover;object-position:center 20%;border:1px solid var(--line);filter:saturate(.9)}
+.profile figcaption{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:14px;text-align:center}
 
 /* ---------- contatti ---------- */
 .contact h2{
