@@ -10,7 +10,7 @@ export function waHref(text: string) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 }
 
-export const EMAIL = 'nicolocabrelli@pm.me';
+export const EMAIL = 'info@nicolocabrelli.com';
 
 // Build a mailto link with a prefilled, URL-encoded subject and body.
 export function mailtoHref(subject: string, body: string) {
