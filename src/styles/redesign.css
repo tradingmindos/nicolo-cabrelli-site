@@ -262,30 +262,8 @@ footer{padding:40px 0 56px}
 .prose p{color:var(--soft);max-width:62ch}
 .prose p+p{margin-top:18px}
 .prose b{color:var(--ink);font-weight:500}
-.wl-h{
-  font-size:clamp(26px,3.4vw,38px);font-weight:600;font-stretch:112%;
-  letter-spacing:-.02em;line-height:1.1;max-width:24ch;
-}
-.wl-line{margin-top:14px;color:var(--soft);max-width:52ch}
-
 /* footer: gruppo link di navigazione */
 .foot-nav{display:flex;flex-wrap:wrap;gap:12px 24px}
-
-/* ---------- form waitlist ---------- */
-.wl-form{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;max-width:640px}
-.wl-form input{
-  font-family:var(--sans);font-size:15px;color:var(--ink);
-  background:var(--card);border:1px solid var(--line-strong);border-radius:4px;
-  padding:12px 14px;flex:1 1 180px;min-width:0;
-}
-.wl-form input::placeholder{color:var(--faint)}
-.wl-form input:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
-.wl-form .btn{flex:0 0 auto}
-.wl-form .btn:disabled{opacity:.6;cursor:default}
-.wl-hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
-.wl-msg{flex:1 1 100%;font-family:var(--mono);font-size:14px}
-.wl-msg--ok{color:var(--accent-deep)}
-.wl-msg--err{color:var(--ink);font-weight:600}
 
 /* scroll reveal for blocks */
 .fade{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
