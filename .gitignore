@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # claude code (config tooling locale)
 .claude/
+
+# wrangler (artefatti temporanei di pages dev)
+.wrangler/
