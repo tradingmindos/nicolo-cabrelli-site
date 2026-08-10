@@ -262,6 +262,7 @@ footer{padding:40px 0 56px}
 .prose p{color:var(--soft);max-width:62ch}
 .prose p+p{margin-top:18px}
 .prose b{color:var(--ink);font-weight:500}
+.contact .prose{margin-top:24px}
 /* footer: gruppo link di navigazione */
 .foot-nav{display:flex;flex-wrap:wrap;gap:12px 24px}
 
