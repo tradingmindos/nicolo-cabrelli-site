@@ -1,0 +1,116 @@
+---
+// Form investitori — Astro vanilla, zero dipendenze. POST JSON alla Pages
+// Function /api/investitori, che valida di nuovo tutto e manda le email.
+// Honeypot "azienda": se un bot lo compila, successo simulato senza rete.
+import type { HomeLang } from '../i18n/home';
+
+interface Props { locale?: HomeLang }
+const { locale = 'it' } = Astro.props;
+
+// Come espressione, mai inline nell'attributo: lì Astro consuma i backslash
+// (\s diventerebbe "s") e il pattern rifiuterebbe email valide.
+const emailPattern = '[^@\\s]+@[^@\\s]+\\.[^@\\s]{2,}';
+
+const t = {
+  it: {
+    name: 'Nome',
+    email: 'Email',
+    org: 'Organizzazione o ruolo',
+    message: 'Cosa vorresti approfondire?',
+    submit: 'Invia',
+    sending: 'Invio…',
+    ok: 'Messaggio inviato. Ti rispondo entro 24 ore lavorative.',
+    err: 'Qualcosa è andato storto. Scrivimi direttamente a info@tradingmindos.com',
+  },
+  en: {
+    name: 'Name',
+    email: 'Email',
+    org: 'Organisation or role',
+    message: 'What would you like to explore?',
+    submit: 'Send',
+    sending: 'Sending…',
+    ok: "Message sent. I'll reply within 24 working hours.",
+    err: 'Something went wrong. Write to me directly at info@tradingmindos.com',
+  },
+}[locale];
+---
+<form
+  class="inv-form"
+  data-inv
+  data-locale={locale}
+  data-ok={t.ok}
+  data-err={t.err}
+  data-sending={t.sending}
+  data-submit={t.submit}
+>
+  <input type="text" name="name" placeholder={t.name} aria-label={t.name} required maxlength="80" autocomplete="name" />
+  <input
+    type="email"
+    name="email"
+    placeholder={t.email}
+    aria-label={t.email}
+    required
+    maxlength="254"
+    pattern={emailPattern}
+    autocomplete="email"
+  />
+  <input type="text" name="org" placeholder={t.org} aria-label={t.org} maxlength="120" autocomplete="organization" />
+  <textarea name="message" placeholder={t.message} aria-label={t.message} required maxlength="2000"></textarea>
+  <input type="text" name="azienda" class="inv-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+  <button type="submit" class="btn btn-solid">{t.submit}</button>
+  <p class="inv-msg" role="status" hidden></p>
+</form>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>('form[data-inv]').forEach((form) => {
+    const btn = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+    const msg = form.querySelector<HTMLParagraphElement>('.inv-msg')!;
+
+    const show = (text: string, ok: boolean) => {
+      msg.textContent = text;
+      msg.classList.toggle('inv-msg--ok', ok);
+      msg.classList.toggle('inv-msg--err', !ok);
+      msg.hidden = false;
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+
+      if (data.get('azienda')) {
+        form.reset();
+        show(form.dataset.ok!, true);
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = form.dataset.sending!;
+      msg.hidden = true;
+
+      try {
+        const res = await fetch('/api/investitori', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: data.get('name'),
+            email: data.get('email'),
+            org: data.get('org'),
+            message: data.get('message'),
+            locale: form.dataset.locale,
+          }),
+        });
+        if (res.ok) {
+          form.reset();
+          show(form.dataset.ok!, true);
+        } else {
+          show(form.dataset.err!, false);
+        }
+      } catch {
+        show(form.dataset.err!, false);
+      }
+
+      btn.disabled = false;
+      btn.textContent = form.dataset.submit!;
+    });
+  });
+</script>

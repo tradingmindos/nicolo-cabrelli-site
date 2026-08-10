@@ -266,6 +266,24 @@ footer{padding:40px 0 56px}
 /* footer: gruppo link di navigazione */
 .foot-nav{display:flex;flex-wrap:wrap;gap:12px 24px}
 
+/* ---------- form investitori ---------- */
+.inv-form{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;max-width:640px}
+.inv-form input,.inv-form textarea{
+  font-family:var(--sans);font-size:15px;color:var(--ink);
+  background:var(--card);border:1px solid var(--line-strong);border-radius:4px;
+  padding:12px 14px;min-width:0;
+}
+.inv-form input{flex:1 1 260px}
+.inv-form input[name="org"],.inv-form textarea{flex:1 1 100%}
+.inv-form textarea{min-height:140px;resize:vertical}
+.inv-form input::placeholder,.inv-form textarea::placeholder{color:var(--faint)}
+.inv-form input:focus-visible,.inv-form textarea:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.inv-form .btn:disabled{opacity:.6;cursor:default}
+.inv-hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+.inv-msg{flex:1 1 100%;font-family:var(--mono);font-size:14px}
+.inv-msg--ok{color:var(--accent-deep)}
+.inv-msg--err{color:var(--ink);font-weight:600}
+
 /* scroll reveal for blocks */
 .fade{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
 .fade.in{opacity:1;transform:none}

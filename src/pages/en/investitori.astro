@@ -1,0 +1,68 @@
+---
+import LayoutRedesign from '../../layouts/LayoutRedesign.astro';
+import InvestorForm from '../../components/InvestorForm.astro';
+import { SITE_URL } from '../../lib/site';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Investing in Trading Mind OS',
+  url: `${SITE_URL}/en/investitori/`,
+  inLanguage: 'en',
+  about: { '@type': 'SoftwareApplication', name: 'Trading Mind OS' },
+};
+---
+<LayoutRedesign
+  lang="en"
+  title="Investing in Trading Mind OS — Nicolò Cabrelli"
+  description="Trading Mind OS is a trading psychology platform in active development, built entirely by Nicolò Cabrelli. For investment and partnership: replies within 24 working hours."
+  ogDescription="Investment and partnership on Trading Mind OS: replies within 24 working hours."
+  jsonLd={jsonLd}
+  alternates={[
+    { hreflang: 'it', href: `${SITE_URL}/investitori/` },
+    { hreflang: 'en', href: `${SITE_URL}/en/investitori/` },
+  ]}
+>
+<header class="top">
+  <div class="wrap top-inner">
+    <a class="logo" href="/en/"><b>nc</b>.cabrelli</a>
+    <nav class="main" aria-label="Main navigation">
+      <a href="/en/progetti">projects</a>
+      <a href="/en/#contact">contact</a>
+      <a class="lang" href="/investitori" hreflang="it" aria-label="Passa all'italiano">it / <b>en</b></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="hero hero--page">
+  <div class="wrap">
+    <p class="eyebrow">investors</p>
+    <h1>Investing in Trading Mind OS</h1>
+    <p class="sub">Trading Mind OS is a trading psychology platform in active development, built entirely by me. If you're evaluating an investment or a partnership, write to me: I reply within 24 working hours.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="sec-label"><b>write to me</b></p>
+    <div class="fade">
+      <InvestorForm locale="en" />
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Nicolò Cabrelli · C.F. 90021180451</span>
+    <span class="foot-nav">
+      <a href="/en/progetti">Projects</a>
+      <a href="/en/investitori">Investors</a>
+      <a href="/en/lunigiana">Websites for local businesses in Lunigiana →</a>
+    </span>
+  </div>
+</footer>
+</LayoutRedesign>

@@ -1,0 +1,68 @@
+---
+import LayoutRedesign from '../layouts/LayoutRedesign.astro';
+import InvestorForm from '../components/InvestorForm.astro';
+import { SITE_URL } from '../lib/site';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Investire in Trading Mind OS',
+  url: `${SITE_URL}/investitori/`,
+  inLanguage: 'it',
+  about: { '@type': 'SoftwareApplication', name: 'Trading Mind OS' },
+};
+---
+<LayoutRedesign
+  lang="it"
+  title="Investire in Trading Mind OS — Nicolò Cabrelli"
+  description="Trading Mind OS è una piattaforma di psicologia del trading in sviluppo attivo, costruita interamente da Nicolò Cabrelli. Per investimenti e partnership: risposta entro 24 ore lavorative."
+  ogDescription="Investimenti e partnership su Trading Mind OS: risposta entro 24 ore lavorative."
+  jsonLd={jsonLd}
+  alternates={[
+    { hreflang: 'it', href: `${SITE_URL}/investitori/` },
+    { hreflang: 'en', href: `${SITE_URL}/en/investitori/` },
+  ]}
+>
+<header class="top">
+  <div class="wrap top-inner">
+    <a class="logo" href="/"><b>nc</b>.cabrelli</a>
+    <nav class="main" aria-label="Navigazione principale">
+      <a href="/progetti">progetti</a>
+      <a href="/#contatti">contatti</a>
+      <a class="lang" href="/en/investitori" hreflang="en" aria-label="Switch to English"><b>it</b> / en</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="hero hero--page">
+  <div class="wrap">
+    <p class="eyebrow">investitori</p>
+    <h1>Investire in Trading Mind OS</h1>
+    <p class="sub">Trading Mind OS è una piattaforma di psicologia del trading in sviluppo attivo, costruita interamente da me. Se stai valutando un investimento o una partnership, scrivimi: rispondo entro 24 ore lavorative.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="sec-label"><b>scrivimi</b></p>
+    <div class="fade">
+      <InvestorForm locale="it" />
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Nicolò Cabrelli · C.F. 90021180451</span>
+    <span class="foot-nav">
+      <a href="/progetti">Progetti</a>
+      <a href="/investitori">Investitori</a>
+      <a href="/lunigiana">Siti web per attività della Lunigiana →</a>
+    </span>
+  </div>
+</footer>
+</LayoutRedesign>
