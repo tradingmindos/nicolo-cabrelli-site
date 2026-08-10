@@ -10,6 +10,11 @@ import type { HomeLang } from '../i18n/home';
 interface Props { locale?: HomeLang }
 const { locale = 'it' } = Astro.props;
 
+// Come espressione, mai inline nell'attributo: lì Astro consuma i backslash
+// (\s diventerebbe "s") e il pattern rifiuterebbe email valide.
+// Rispecchia il check RLS: email like '%_@_%.__%'.
+const emailPattern = '[^@\\s]+@[^@\\s]+\\.[^@\\s]{2,}';
+
 const t = {
   it: {
     name: 'Nome',
@@ -46,7 +51,7 @@ const t = {
     aria-label={t.email}
     required
     maxlength="254"
-    pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}"
+    pattern={emailPattern}
     autocomplete="email"
   />
   <input type="text" name="azienda" class="wl-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
