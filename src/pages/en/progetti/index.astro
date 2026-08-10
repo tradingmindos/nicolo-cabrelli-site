@@ -1,0 +1,98 @@
+---
+import LayoutRedesign from '../../../layouts/LayoutRedesign.astro';
+import { SITE_URL } from '../../../lib/site';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Projects — Nicolò Cabrelli',
+  url: `${SITE_URL}/en/progetti/`,
+  inLanguage: 'en',
+};
+---
+<LayoutRedesign
+  lang="en"
+  title="Projects — Nicolò Cabrelli"
+  description="Projects by Nicolò Cabrelli: own products and client work, built end-to-end — from database to interface."
+  ogDescription="Own products and client work, built end-to-end."
+  jsonLd={jsonLd}
+  alternates={[
+    { hreflang: 'it', href: `${SITE_URL}/progetti/` },
+    { hreflang: 'en', href: `${SITE_URL}/en/progetti/` },
+  ]}
+>
+<header class="top">
+  <div class="wrap top-inner">
+    <a class="logo" href="/en/"><b>nc</b>.cabrelli</a>
+    <nav class="main" aria-label="Main navigation">
+      <a href="/en/">home</a>
+      <a href="/en/#contact">contact</a>
+      <a class="lang" href="/progetti" hreflang="it" aria-label="Passa all'italiano">it / <b>en</b></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="hero hero--page">
+  <div class="wrap">
+    <p class="eyebrow">index</p>
+    <h1>Projects</h1>
+    <p class="sub">Own products and client work, built end-to-end — from database to interface.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="sec-label"><b>all</b> projects</p>
+
+    <article class="dossier dossier--min fade">
+      <div class="d-body">
+        <h3><a href="/en/progetti/trading-mind-os">Trading Mind OS</a></h3>
+        <p class="lead">Trading psychology platform. Own product, active development.</p>
+        <div class="stack-tags">
+          <span>react</span><span>vite</span><span>supabase</span><span>postgresql</span><span>cloudflare</span><span>anthropic api</span><span>metatrader 5</span>
+        </div>
+        <a class="d-link" href="/en/progetti/trading-mind-os">View project →</a>
+      </div>
+    </article>
+
+    <article class="dossier dossier--min fade">
+      <div class="d-body">
+        <span class="status">live</span>
+        <h3><a href="https://soravent.com" rel="noopener">SORAVENT <span class="ext">↗</span></a></h3>
+        <p class="lead">A premium Italian-language trading education platform.</p>
+        <div class="stack-tags">
+          <span>react</span><span>supabase</span><span>postgresql</span><span>cloudflare</span><span>pdf generation</span>
+        </div>
+        <a class="d-link" href="https://soravent.com" rel="noopener">soravent.com ↗</a>
+      </div>
+    </article>
+
+    <article class="dossier dossier--min fade">
+      <div class="d-body">
+        <span class="status">live</span>
+        <h3><a href="https://taxi-pontremoli.com" rel="noopener">Taxi Pontremoli <span class="ext">↗</span></a></h3>
+        <p class="lead">A production website for a local business: fast, optimized for Google, delivered end-to-end.</p>
+        <div class="stack-tags">
+          <span>astro</span><span>tailwind</span><span>cloudflare pages</span><span>technical seo</span>
+        </div>
+        <a class="d-link" href="https://taxi-pontremoli.com" rel="noopener">taxi-pontremoli.com ↗</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Nicolò Cabrelli · C.F. 90021180451</span>
+    <span class="foot-nav">
+      <a href="/en/progetti">Projects</a>
+      <a href="/en/lunigiana">Websites for local businesses in Lunigiana →</a>
+    </span>
+  </div>
+</footer>
+</LayoutRedesign>

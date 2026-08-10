@@ -1,0 +1,98 @@
+---
+import LayoutRedesign from '../../layouts/LayoutRedesign.astro';
+import { SITE_URL } from '../../lib/site';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Progetti — Nicolò Cabrelli',
+  url: `${SITE_URL}/progetti/`,
+  inLanguage: 'it',
+};
+---
+<LayoutRedesign
+  lang="it"
+  title="Progetti — Nicolò Cabrelli"
+  description="I progetti di Nicolò Cabrelli: prodotti propri e lavoro cliente, costruiti end-to-end — dal database all'interfaccia."
+  ogDescription="Prodotti propri e lavoro cliente, costruiti end-to-end."
+  jsonLd={jsonLd}
+  alternates={[
+    { hreflang: 'it', href: `${SITE_URL}/progetti/` },
+    { hreflang: 'en', href: `${SITE_URL}/en/progetti/` },
+  ]}
+>
+<header class="top">
+  <div class="wrap top-inner">
+    <a class="logo" href="/"><b>nc</b>.cabrelli</a>
+    <nav class="main" aria-label="Navigazione principale">
+      <a href="/">home</a>
+      <a href="/#contatti">contatti</a>
+      <a class="lang" href="/en/progetti" hreflang="en" aria-label="Switch to English"><b>it</b> / en</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="hero hero--page">
+  <div class="wrap">
+    <p class="eyebrow">indice</p>
+    <h1>Progetti</h1>
+    <p class="sub">Prodotti propri e lavoro cliente, costruiti end-to-end — dal database all'interfaccia.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="sec-label"><b>tutti</b> i progetti</p>
+
+    <article class="dossier dossier--min fade">
+      <div class="d-body">
+        <h3><a href="/progetti/trading-mind-os">Trading Mind OS</a></h3>
+        <p class="lead">Piattaforma di psicologia del trading. Prodotto proprietario, sviluppo attivo.</p>
+        <div class="stack-tags">
+          <span>react</span><span>vite</span><span>supabase</span><span>postgresql</span><span>cloudflare</span><span>anthropic api</span><span>metatrader 5</span>
+        </div>
+        <a class="d-link" href="/progetti/trading-mind-os">Vedi il progetto →</a>
+      </div>
+    </article>
+
+    <article class="dossier dossier--min fade">
+      <div class="d-body">
+        <span class="status">in produzione</span>
+        <h3><a href="https://soravent.com" rel="noopener">SORAVENT <span class="ext">↗</span></a></h3>
+        <p class="lead">Piattaforma premium di formazione sul trading, in italiano.</p>
+        <div class="stack-tags">
+          <span>react</span><span>supabase</span><span>postgresql</span><span>cloudflare</span><span>pdf generation</span>
+        </div>
+        <a class="d-link" href="https://soravent.com" rel="noopener">soravent.com ↗</a>
+      </div>
+    </article>
+
+    <article class="dossier dossier--min fade">
+      <div class="d-body">
+        <span class="status">in produzione</span>
+        <h3><a href="https://taxi-pontremoli.com" rel="noopener">Taxi Pontremoli <span class="ext">↗</span></a></h3>
+        <p class="lead">Sito di produzione per un'attività locale: veloce, ottimizzato per Google, consegnato end-to-end.</p>
+        <div class="stack-tags">
+          <span>astro</span><span>tailwind</span><span>cloudflare pages</span><span>technical seo</span>
+        </div>
+        <a class="d-link" href="https://taxi-pontremoli.com" rel="noopener">taxi-pontremoli.com ↗</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Nicolò Cabrelli · C.F. 90021180451</span>
+    <span class="foot-nav">
+      <a href="/progetti">Progetti</a>
+      <a href="/lunigiana">Siti web per attività della Lunigiana →</a>
+    </span>
+  </div>
+</footer>
+</LayoutRedesign>

@@ -1,0 +1,109 @@
+---
+import LayoutRedesign from '../../../layouts/LayoutRedesign.astro';
+import WaitlistForm from '../../../components/WaitlistForm.astro';
+import { SITE_URL } from '../../../lib/site';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Trading Mind OS',
+  applicationCategory: 'FinanceApplication',
+  operatingSystem: 'Web',
+  softwareVersion: '2.4',
+  url: `${SITE_URL}/en/progetti/trading-mind-os/`,
+  author: { '@type': 'Person', name: 'Nicolò Cabrelli', url: SITE_URL },
+};
+---
+<LayoutRedesign
+  lang="en"
+  title="Trading Mind OS — Nicolò Cabrelli"
+  description="A workspace for the part of trading that conventional tools leave out: the decision. Access opens in groups."
+  ogDescription="A workspace for the part of trading that conventional tools leave out: the decision."
+  jsonLd={jsonLd}
+  alternates={[
+    { hreflang: 'it', href: `${SITE_URL}/progetti/trading-mind-os/` },
+    { hreflang: 'en', href: `${SITE_URL}/en/progetti/trading-mind-os/` },
+  ]}
+>
+<header class="top">
+  <div class="wrap top-inner">
+    <a class="logo" href="/en/"><b>nc</b>.cabrelli</a>
+    <nav class="main" aria-label="Main navigation">
+      <a href="/en/progetti">projects</a>
+      <a href="/en/#contact">contact</a>
+      <a class="lang" href="/progetti/trading-mind-os" hreflang="it" aria-label="Passa all'italiano">it / <b>en</b></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="hero hero--page">
+  <div class="wrap">
+    <p class="eyebrow">projects / trading mind os</p>
+    <h1>Trading Mind OS</h1>
+    <p class="sub">A workspace for the part of trading that conventional tools leave out: the decision.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="sec-label"><b>vision</b></p>
+    <div class="prose fade">
+      <p>A trader's result takes shape in the space between the signal and the order. Trading Mind OS works precisely there: pre-session preparation, risk sizing, trade journal, post-market review. A daily method applied to the mind with the same rigour used to test a strategy.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="sec-label"><b>current state</b></p>
+    <div class="prose fade">
+      <p>Version 2.4, active development. MetaTrader 5 integration via Expert Advisor, multi-account handling, risk console, synced journal, internal editorial system. Product, design, backend and integration built entirely by me.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="sec-label"><b>architecture</b></p>
+    <div class="schematic fade">
+      <svg viewBox="0 0 680 150" role="img" aria-label="Trading Mind OS architecture" class="reveal">
+        <path class="wire" d="M150 45 H 210"/>
+        <path class="wire" d="M370 45 H 430"/>
+        <path class="wire hot" d="M290 68 V 118 H 430"/>
+        <path class="wire" d="M150 118 H 210 M 330 118 H 400 V 45 H 430"/>
+        <g class="node hot"><rect x="30" y="22" width="120" height="46" rx="4"/><text x="90" y="42" text-anchor="middle">React SPA</text><text x="90" y="58" text-anchor="middle" class="tag">widget dashboard</text></g>
+        <g class="node"><rect x="210" y="22" width="160" height="46" rx="4"/><text x="290" y="42" text-anchor="middle">Supabase RPC</text><text x="290" y="58" text-anchor="middle" class="tag">server-enforced trial</text></g>
+        <g class="node hot"><rect x="430" y="22" width="220" height="46" rx="4"/><text x="540" y="42" text-anchor="middle">PostgreSQL + RLS</text><text x="540" y="58" text-anchor="middle" class="tag">row-level security per user</text></g>
+        <g class="node"><rect x="30" y="95" width="120" height="46" rx="4"/><text x="90" y="115" text-anchor="middle">MetaTrader 5</text><text x="90" y="131" text-anchor="middle" class="tag">custom EA</text></g>
+        <g class="node"><rect x="210" y="95" width="120" height="46" rx="4"/><text x="270" y="115" text-anchor="middle">Bridge</text><text x="270" y="131" text-anchor="middle" class="tag">live trade sync</text></g>
+        <g class="node"><rect x="430" y="95" width="220" height="46" rx="4"/><text x="540" y="115" text-anchor="middle">Anthropic API</text><text x="540" y="131" text-anchor="middle" class="tag">AI coach, server-side</text></g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="sec-label"><b>waitlist</b></p>
+    <div class="fade">
+      <h2 class="wl-h">Access opens in groups.</h2>
+      <p class="wl-line">Leave your name and email. I write to you when the next group opens.</p>
+      <WaitlistForm locale="en" />
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Nicolò Cabrelli · C.F. 90021180451</span>
+    <span class="foot-nav">
+      <a href="/en/progetti">Projects</a>
+      <a href="/en/lunigiana">Websites for local businesses in Lunigiana →</a>
+    </span>
+  </div>
+</footer>
+</LayoutRedesign>
