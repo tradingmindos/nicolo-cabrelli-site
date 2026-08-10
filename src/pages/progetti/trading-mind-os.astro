@@ -1,6 +1,5 @@
 ---
 import LayoutRedesign from '../../layouts/LayoutRedesign.astro';
-import WaitlistForm from '../../components/WaitlistForm.astro';
 import { SITE_URL } from '../../lib/site';
 
 const jsonLd = {
@@ -84,13 +83,16 @@ const jsonLd = {
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <p class="sec-label"><b>waitlist</b></p>
-    <div class="fade">
-      <h2 class="wl-h">Accessi in apertura graduale.</h2>
-      <p class="wl-line">Lascia nome ed email. Ti scrivo io quando apro il prossimo gruppo.</p>
-      <WaitlistForm locale="it" />
+<section class="contact">
+  <div class="wrap fade">
+    <p class="sec-label"><b>contatti</b></p>
+    <h2>Conversazioni su investimento e partnership</h2>
+    <div class="prose">
+      <p>Per valutare Trading Mind OS come opportunità di investimento o per proporre una collaborazione, scrivimi a info@tradingmindos.com. Rispondo entro 24 ore lavorative.</p>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-solid" href="mailto:info@tradingmindos.com">info@tradingmindos.com</a>
+      <a class="btn btn-ghost" href="https://tradingmindos.com" target="_blank" rel="noopener">Vedi il prodotto</a>
     </div>
   </div>
 </section>
